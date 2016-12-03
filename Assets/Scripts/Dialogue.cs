@@ -11,8 +11,7 @@ public class Dialogue : MonoBehaviour {
 
     public void addMessage(string msg)
     {
-        //print("DIALOGE: got message " + msg);
-        //print("count is " + messages.Count);
+        
         if (messages.Count == 0)
         {
             mText.text = msg;

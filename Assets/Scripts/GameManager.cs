@@ -36,12 +36,16 @@ public class GameManager : MonoBehaviour {
 
         uiManager.closeUI();
 
+
         if(curDay == 0)
         {
+            //send the initial politican phone call
             print("sending messages");
             uiManager.addDialogue("dawn of the first day");
             uiManager.addDialogue("Test seccond message");
             uiManager.addDialogue("Test third message");
+
+            //set up first decision tree
         }
 
         //get the current officer assignments
