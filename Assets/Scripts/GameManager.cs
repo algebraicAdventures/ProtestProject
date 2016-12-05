@@ -12,10 +12,13 @@ public class GameManager : MonoBehaviour {
     private float situationValue;
     private float cityStatusValue;
 
-    private int curDay = 0;
+    private int currEvent = 0;
+    int numOffInSection1 = 0;
+    int numOffInSection2 = 0;
+    int numOffInSection3 = 0;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         publicPerceptionValue = 0.0f;
         situationValue = 0.0f;
         cityStatusValue = 1.0f;
@@ -30,22 +33,25 @@ public class GameManager : MonoBehaviour {
     }
 	
 	//public function for when player is finished with officer assignments
-    public void startDay()
+    public void nextEvent()
     {
-        print("starting the day");
+        //print("starting the day");
 
         uiManager.closeUI();
 
 
-        if(curDay == 0)
+        if(currEvent == 0)
         {
             //send the initial politican phone call
-            print("sending messages");
             uiManager.addDialogue("dawn of the first day");
             uiManager.addDialogue("Test seccond message");
             uiManager.addDialogue("Test third message");
 
+            //get officer assignments
+            //numOffInSection1 = uiManager;
+
             //set up first decision tree
+            //
         }
 
         //get the current officer assignments

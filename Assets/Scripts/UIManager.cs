@@ -28,6 +28,13 @@ public class UIManager : MonoBehaviour {
         mDialogue = dialogueCanvas.GetComponent<Dialogue>();
     }
 
+    public int getOfficersInArea(int areaIndex)
+    {
+
+
+        return 0;
+    }
+
     public void addDialogue(string message)
     {
         //print("got messages to add " + message);
