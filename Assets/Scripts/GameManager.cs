@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour {
                 //make the phone ring
                 print("phone is ring");
                 phoneOn = true;
+                currEvent++;
             }
             else if (currEvent == 1)
             {
@@ -62,17 +63,20 @@ public class GameManager : MonoBehaviour {
                 uiManager.addDialogue(PlayerName, "They're on their way.");
 
                 uiManager.addDialogue("Politician", "Thank you.");
+                currEvent++;
 
             }
             else if (currEvent == 2)
             {
                 //wait for the player to have time to read twitter and stuff
                 Invoke("nextEvent", 5);
+                currEvent++;
 
             } else if(currEvent == 3)
             {
                 print("NEW phone ring");
                 phoneOn = true;
+                currEvent++;
             } else if( currEvent == 4)
             {
                 uiManager.addDialogue("Officer", "Emergency chief! We have a 444 involving one of our own men. He was down at Berkeley City Hall and he took things into his own hands. He reported that the teenager fled the McDonald's at the sight of him. He held up his gun and chased him.");
@@ -82,10 +86,12 @@ public class GameManager : MonoBehaviour {
                 uiManager.addDialogue(PlayerName, "Please remain alert officer.");
 
                 uiManager.addDialogue("Officer", "Yes sir!");
+                currEvent++;
             } else if(currEvent == 5)
             {
                 //have the player assign officers between PR and patrol
                 uiManager.setOfficerAssignActive(true);
+                currEvent++;
             } else if(currEvent == 6)
             {
                 //get stuff from the officer assignments
@@ -118,15 +124,45 @@ public class GameManager : MonoBehaviour {
                     uiManager.addDialogue("Officer", "Noted.");
 
                 }
+
+                currEvent++;
             }
             else
             {
                 print("end day 1");
                 currDay++;
-                currEvent = -1;
+                currEvent = 0;
+
+                //fade out then in then call nextEvent
+
+                //fade screen to black
+                print("pretend that I faded to black");
+                //after fade, call the next event
+                nextEvent();
             }
         } else if(currDay == 2)
         {
+            
+            //print("day 2: curEvent = " + currEvent);
+            if(currEvent == 0)
+            {
+                //print("start day 2");
+                //display newspaper
+                uiManager.setNewspaperActive(true);
+                newsOn = true;
+
+                currEvent++;
+            }
+            else if(currEvent == 1)
+            {
+                //phone ring thing
+                print("DAY 2 BIG RING RONG");
+                phoneOn = true;
+                currEvent++;
+            } else if(currEvent == 2)
+            {
+                print("rip day 2");
+            }
             //Day 2 events
         }
 
@@ -137,7 +173,9 @@ public class GameManager : MonoBehaviour {
         numOffInSection3 = uiManager.getOfficersInArea(2);
         */
         //get the current officer assignments
-        currEvent++;
+        
+        
+        //print("increment curEvent to " + currEvent);
     }
 
     public void pickUpPhone()
@@ -149,12 +187,13 @@ public class GameManager : MonoBehaviour {
             nextEvent();
         }
     }
-
+    
     public void setNewspaperInactive()
     {
         uiManager.setNewspaperActive(false);
         if (newsOn)
         {
+            newsOn = false;
             nextEvent();
         }
     }
