@@ -5,15 +5,13 @@ public class ReactToClick : MonoBehaviour {
 
     public enum ObjectType { Twitter, Cell, Landline, Newspaper};
     public ObjectType mType;
+    public GameManager gameManager;
 
     public UIManager uiManager;
 
     void OnMouseDown()
     {
-        //print("Box Clicked!");
-
-        //display newspaper UI with button to close
-
+        
         switch (mType)
         {
             case ObjectType.Cell:
@@ -23,15 +21,14 @@ public class ReactToClick : MonoBehaviour {
                 uiManager.activateTwitter();
                 break;
             case ObjectType.Landline:
-                uiManager.activateLandline();
+                //uiManager.activateLandline();
+                gameManager.pickUpPhone();
                 break;
             case ObjectType.Newspaper:
                 uiManager.activateNewspaper();
                 break;
         }
-
-        //uiManager.setNewspaperActive(true);
-
-
     }
+
+
 }

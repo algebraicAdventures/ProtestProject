@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mType: 2
+  gameManager: {fileID: 233455051}
   uiManager: {fileID: 233455049}
 --- !u!23 &18220240
 MeshRenderer:
@@ -448,6 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mType: 0
+  gameManager: {fileID: 233455051}
   uiManager: {fileID: 233455049}
 --- !u!1 &125151335
 GameObject:
@@ -1130,6 +1132,10 @@ MonoBehaviour:
   cellphoneCanvas: {fileID: 940056986}
   officerAssignCanvas: {fileID: 125151338}
   dialogueCanvas: {fileID: 1981933374}
+  dropZones:
+  - {fileID: 1921182905}
+  - {fileID: 904764953}
+  - {fileID: 222943025}
 --- !u!4 &233455050
 Transform:
   m_ObjectHideFlags: 0
@@ -1284,7 +1290,7 @@ Prefab:
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 589
+      value: 591
       objectReference: {fileID: 0}
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
@@ -1339,7 +1345,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e0d26c4ee32669a478be87a14f1bd976,
+      objectReference: {fileID: 21300000, guid: a6202dfad96b9144e9232f1b07b0ab0b,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cc0f18f5fcfddd438b33b96812306b5, type: 2}
@@ -1716,7 +1722,7 @@ Prefab:
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 190
+      value: 192
       objectReference: {fileID: 0}
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
@@ -1763,6 +1769,12 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012555162348, guid: 1cc0f18f5fcfddd438b33b96812306b5,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 05d47f04e3bb65b4aa5cffa87e9a5f9e,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cc0f18f5fcfddd438b33b96812306b5, type: 2}
   m_IsPrefabParent: 0
@@ -1833,7 +1845,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 
 --- !u!222 &901153451
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2221,6 +2233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mType: 1
+  gameManager: {fileID: 233455051}
   uiManager: {fileID: 233455049}
 --- !u!1 &1104769916
 GameObject:
@@ -2294,7 +2307,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1114187992 stripped
 RectTransform:
@@ -2351,7 +2364,7 @@ Prefab:
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 456
+      value: 458
       objectReference: {fileID: 0}
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
@@ -2406,7 +2419,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f78486847bed0f940b46c50c6fbea503,
+      objectReference: {fileID: 21300000, guid: d78e7fc671c6c6a4680c1d12d68cd8d3,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cc0f18f5fcfddd438b33b96812306b5, type: 2}
@@ -2535,7 +2548,7 @@ Prefab:
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 855
+      value: 857
       objectReference: {fileID: 0}
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
@@ -2590,7 +2603,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3c874f572156cbd4d9aa5ee56e0f8314,
+      objectReference: {fileID: 21300000, guid: a945668a35f755d49a9bc2e0baf6b24e,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cc0f18f5fcfddd438b33b96812306b5, type: 2}
@@ -2916,6 +2929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mType: 3
+  gameManager: {fileID: 233455051}
   uiManager: {fileID: 233455049}
 --- !u!1 &1692416487
 GameObject:
@@ -3306,7 +3320,7 @@ Prefab:
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 323
+      value: 325
       objectReference: {fileID: 0}
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
@@ -3361,7 +3375,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 17f7bc65070b6e04dbc7c983506eb052,
+      objectReference: {fileID: 21300000, guid: ed2239367fa46b542809544372097507,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cc0f18f5fcfddd438b33b96812306b5, type: 2}
@@ -3830,6 +3844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messages: []
   mText: {fileID: 1104769917}
+  gameManager: {fileID: 233455051}
 --- !u!1001 &2002075636
 Prefab:
   m_ObjectHideFlags: 0
@@ -3880,7 +3895,7 @@ Prefab:
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 722
+      value: 724
       objectReference: {fileID: 0}
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
@@ -3935,7 +3950,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e090872673b205743a1ae66b104c4ada,
+      objectReference: {fileID: 21300000, guid: ef5787adc290455498e076363e7a4ed0,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cc0f18f5fcfddd438b33b96812306b5, type: 2}
@@ -3975,7 +3990,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 340.69, y: 125.93}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 56, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2057948774
 MonoBehaviour:
@@ -4012,13 +4027,13 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2057948775}
+  m_TargetGraphic: {fileID: 204266162}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 233455049}
-        m_MethodName: setNewspaperActive
-        m_Mode: 6
+      - m_Target: {fileID: 233455051}
+        m_MethodName: setNewspaperInactive
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4048,8 +4063,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 26f9ca629fe46294284fffc6d5d71e3d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

@@ -10,6 +10,9 @@ public class UIManager : MonoBehaviour {
     public Canvas officerAssignCanvas;
     public Canvas dialogueCanvas;
 
+
+    public DropZone[] dropZones;
+
     private Dialogue mDialogue;
 
     //bool inUse = true;
@@ -30,16 +33,21 @@ public class UIManager : MonoBehaviour {
 
     public int getOfficersInArea(int areaIndex)
     {
+        //get the number of elements in the area corresponding to the index given
+        //DropZone mZone = dialogueCanvas.GetComponent<DropZone>();
+        //print(mZone.ToString());
+        //print(dz1.ToString());
+        print(dropZones[areaIndex].transform.childCount);
+        //dz1.chi
 
-
-        return 0;
+        return dropZones[areaIndex].transform.childCount;
     }
 
-    public void addDialogue(string message)
+    public void addDialogue(string speaker, string message)
     {
         //print("got messages to add " + message);
         //print("adding message " + message);
-        mDialogue.addMessage(message);
+        mDialogue.addMessage(speaker, message);
         dialogueCanvas.gameObject.SetActive(true);
     }
 

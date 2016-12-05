@@ -8,8 +8,9 @@ public class Dialogue : MonoBehaviour {
     public List<string> messages = new List<string>();
 
     public Text mText;
+    public GameManager gameManager;
 
-    public void addMessage(string msg)
+    public void addMessage(string speaker, string msg)
     {
         
         if (messages.Count == 0)
@@ -22,6 +23,7 @@ public class Dialogue : MonoBehaviour {
 
     public void nextMessage()
     {
+        //print("messages count: " + messages.Count);
         if (messages.Count > 1)
         {
             string next = messages[1];
@@ -34,6 +36,9 @@ public class Dialogue : MonoBehaviour {
         {
             //print("close dialogue");
             gameObject.SetActive(false);
+            messages.RemoveAt(0);
+            //make the next event occur
+            gameManager.nextEvent();
             //transform.gameObject.SetActive(false);
         }
     }
