@@ -1,4 +1,4 @@
-Audio for cellphone works
+Audio for cellphone works (text notification and call)
 	want to wait to put things onto actuall cell phone object
 game is in the office we built
 	make a scene in unity with it
@@ -6,8 +6,6 @@ update newspaper accordingly
 	need newspapers as images rather than illustrator things
 update texts accordingly
 	need cell text things
-twitter feature working
-	need twitter template as image not AI file
 desktop UI that splits into news/twitter
 	need the ui icons as seperate pictures rather than one flat image
 fonts and colors for dialogue
@@ -16,7 +14,6 @@ Officer assignment UI stuff
 	need officer assign pushed as image
 Officer assignment has mechanical effect on game (change situation value)
 	talk to carol about what it should be
-Phone ringing doesn't close UI elements
 Transitions from day to day
 	fade out or screen goes straight to black
 
