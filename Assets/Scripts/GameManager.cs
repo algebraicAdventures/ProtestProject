@@ -381,7 +381,6 @@ public class GameManager : MonoBehaviour {
                 if(numOffInSection1 >= numOffInSection2 && numOffInSection1 >= numOffInSection3)
                 {
                     //Police Union Issues a Statement Saying 'All Cops Are Not Murderers' 
-                    //set up newspaper
                     //show paper
                     uiManager.updateNewspaper(newspapers[4]);
                     newsOn = true;

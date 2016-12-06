@@ -15,7 +15,10 @@ Officer assignment has mechanical effect on game (change situation value)
 Transitions from day to day
 	fade out or screen goes straight to black
 
-
+	
+add 7th officer, remove when fire event occurs
+	
+	
 Add in more decisions for the player to react to
 	this will require more code to make the UI for that appear and look not terrible
 
