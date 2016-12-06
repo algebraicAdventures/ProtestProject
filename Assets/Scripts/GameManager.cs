@@ -481,7 +481,125 @@ public class GameManager : MonoBehaviour {
                 //give player wait time
                 Invoke("nextEvent", twitterReadWaitTime);
                 currEvent++;
+            } else if (currEvent == 3)
+            {
+                if(situationValue < 4 && situationValue > 2)
+                {
+                    //make phone ring for Cop Stuns Pregnant Woman With Taser
+                    print("day 4 phone ring");
+                    phoneOn = true;
+                    currEvent++;
+                }
+                else
+                {
+                    currEvent += 2;
+                }
+            } else if(currEvent == 4)
+            {
+                //Cop Stuns Pregnant Woman With Taser
+                uiManager.addDialogue("Officer", "Situation report, Chief. The protest continues to grow uneasy and louder. Officers on site are on standby, but one officer was insulted and he tases a pregnant woman. She was unconscious for a few seconds but she has calmed down since then.");
+                uiManager.addDialogue("Officer", "After that, there were no further disruptions.");
+
+                uiManager.addDialogue(PlayerName, "I'm glad you guys have the situation under control.");
+            } else if(currEvent == 5)
+            {
+                //allocate officers
+                uiManager.setOfficerAssignActive(true);
+                currEvent++;
+
+            } else if(currEvent == 6)
+            {
+                numOffInSection1 = uiManager.getOfficersInArea(0); //Write report number
+                numOffInSection2 = uiManager.getOfficersInArea(1); //PR number
+                numOffInSection3 = uiManager.getOfficersInArea(2); //respond to situation number
+
+                if(numOffInSection1 > numOffInSection2 && numOffInSection1 > numOffInSection3)
+                {
+                    //BKPD Reports That Officers Will Use Weapons if Provoked - Nothing New
+                    //newspaper setup
+                    newsOn = true;
+                    uiManager.setNewspaperActive(true);
+                    currEvent+=2;
+                }
+                else if(numOffInSection2 > numOffInSection1 && numOffInSection2 > numOffInSection3)
+                {
+                    //Woman Punched By BKPD Officer Arrested Again
+                    //phone call
+                    print("day 4 phone 2 ring");
+                    phoneOn = true;
+                    currEvent++;
+                }
+                else
+                {
+                    //Police Officer Fired for Misconduct
+                    //newspaper
+                    newsOn = true;
+                    uiManager.setNewspaperActive(true);
+                    currEvent += 2;
+                }
+            }else if (currEvent == 7)
+            {
+                //Woman Punched By BKPD Officer Arrested Again
+                uiManager.addDialogue("Officer", "Hey Chief, I'm down at the station right now and we're in a pickle.");
+                uiManager.addDialogue("Officer", "The woman arrested was being uncooperative and verbally aggressive. We had to take physical control of her and she fought with one of our men. He has a slight bruise but we're holding her for another 48 hours to see if she wants to cooperate then.");
+
+                uiManager.addDialogue(PlayerName, "Stay on guard.");
+
+                uiManager.addDialogue("Officer", "Yes sir!");
+
+                currEvent++;
+            } else if(currEvent == 8)
+            {
+                //daughter interaction depending on situation level
+                if(situationValue < 2)
+                {
+                    //Daughter Thanks
+                    currEvent += 2;
+                } else if(situationValue < 4)
+                {
+                    //Daughter Worries
+                    currEvent += 2;
+                }
+                else
+                {
+                    //Daughter Scolds
+                    //cell call
+                    print("end day 4 cell call xDDD");
+                    cellOn = true;
+                    currEvent++;
+
+                }
+            }else if(currEvent == 9)
+            {
+                //Daughter scolds
+                uiManager.addDialogue("Daughter", "Dad! What are you doing?? You're in charge of the police officers right? These guys are supposed to be keeping us safe!");
+                uiManager.addDialogue("Daughter", "My friend knew that woman and now her family is getting harassed every time they leave the house.");
+                uiManager.addDialogue("Daughter", "How could you do this?");
+
+                uiManager.addDialogue(PlayerName, "I'm doing what's best for everyone.");
+
+                uiManager.addDialogue("Daughter", "Well, try harder!");
             }
+            else
+            {
+                //end day 4
+                currDay++;
+                currEvent = 0;
+
+                //fade out then in then call nextEvent
+
+                //fade screen to black
+                print("pretend that I faded to black");
+                //after fade, call the next event
+                nextEvent();
+            }
+        }
+        /********
+         * DAY 4
+         ********/
+        else if (currDay == 5)
+        {
+
         }
         
     }
