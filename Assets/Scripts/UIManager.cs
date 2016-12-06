@@ -9,7 +9,9 @@ public class UIManager : MonoBehaviour {
     public Canvas cellphoneCanvas;
     public Canvas officerAssignCanvas;
     public Canvas dialogueCanvas;
+    public Canvas desktopCanvas;
 
+    public AudioSource desktopSound;
 
     public DropZone[] dropZones;
 
@@ -27,6 +29,7 @@ public class UIManager : MonoBehaviour {
         cellphoneCanvas.gameObject.SetActive(false);
         officerAssignCanvas.gameObject.SetActive(false);
         dialogueCanvas.gameObject.SetActive(false);
+        desktopCanvas.gameObject.SetActive(false);
 
         mDialogue = dialogueCanvas.GetComponent<Dialogue>();
     }
@@ -56,22 +59,35 @@ public class UIManager : MonoBehaviour {
         //return newspaperCanvas.gameObject.active;
         return newspaperCanvas.isActiveAndEnabled || twitterCanvas.isActiveAndEnabled ||
             landlineCanvas.isActiveAndEnabled || cellphoneCanvas.isActiveAndEnabled
-            || officerAssignCanvas.isActiveAndEnabled || dialogueCanvas.isActiveAndEnabled;
+            || officerAssignCanvas.isActiveAndEnabled || dialogueCanvas.isActiveAndEnabled ||
+            desktopCanvas.isActiveAndEnabled;
     }
 
 
 
     public void closeUI()
     {
-        //inUse = false;
         //hide the UI
         newspaperCanvas.gameObject.SetActive(false);
         twitterCanvas.gameObject.SetActive(false);
         landlineCanvas.gameObject.SetActive(false);
         cellphoneCanvas.gameObject.SetActive(false);
         officerAssignCanvas.gameObject.SetActive(false);
+        desktopCanvas.gameObject.SetActive(false);
     }
 
+    public void activateDesktop()
+    {
+        if (!inUse())
+        {
+            desktopSound.Play();
+            desktopCanvas.gameObject.SetActive(true);
+        }
+    }
+    public void deactivateDesktop()
+    {
+        desktopCanvas.gameObject.SetActive(false);
+    }
 
     public void activateNewspaper()
     {
@@ -151,13 +167,14 @@ public class UIManager : MonoBehaviour {
     
     public void setNewspaperActive(bool val)
     {
-        
+        closeUI();
         newspaperCanvas.gameObject.SetActive(val);
         //inUse = val;
     }
 
     public void setTwitterActive(bool val)
     {
+        closeUI();
         twitterCanvas.gameObject.SetActive(val);
         //inUse = val;
     }

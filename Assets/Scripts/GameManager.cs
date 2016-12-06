@@ -50,7 +50,8 @@ public class GameManager : MonoBehaviour {
     public void nextEvent()
     {
 
-        uiManager.closeUI();
+        //uiManager.closeUI();
+        uiManager.setOfficerAssignActive(false);
 
         /********
          * DAY 1
@@ -423,6 +424,7 @@ public class GameManager : MonoBehaviour {
                 {
                     //Son Scolds
                     //make the new text and have the story advance when player closes cell phone
+                    textOn = true;
                     currEvent += 2;
                 }
             } else if(currEvent == 10)
@@ -489,6 +491,7 @@ public class GameManager : MonoBehaviour {
             } else if(currEvent == 1)
             {
                 //recieve text from daughter
+                textOn = true;
                 print("daughter text");
             } else if (currEvent == 2)
             {
@@ -570,10 +573,12 @@ public class GameManager : MonoBehaviour {
                 if(situationValue < 2)
                 {
                     //Daughter Thanks
+                    textOn = true;
                     currEvent += 2;
                 } else if(situationValue < 4)
                 {
                     //Daughter Worries
+                    textOn = true;
                     currEvent += 2;
                 }
                 else

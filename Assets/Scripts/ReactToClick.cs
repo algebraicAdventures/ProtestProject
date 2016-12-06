@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ReactToClick : MonoBehaviour {
 
-    public enum ObjectType { Twitter, Cell, Landline, Newspaper};
+    public enum ObjectType { Desktop, Cell, Landline, Newspaper};
     public ObjectType mType;
     public GameManager gameManager;
 
@@ -18,8 +18,8 @@ public class ReactToClick : MonoBehaviour {
                 //uiManager.activateCellphone();
                 gameManager.pickUpCell();
                 break;
-            case ObjectType.Twitter:
-                uiManager.activateTwitter();
+            case ObjectType.Desktop:
+                uiManager.activateDesktop();
                 break;
             case ObjectType.Landline:
                 //uiManager.activateLandline();

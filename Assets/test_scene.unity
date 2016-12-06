@@ -271,7 +271,7 @@ GameObject:
   - 114: {fileID: 24076767}
   - 114: {fileID: 24076766}
   m_Layer: 5
-  m_Name: Option 1
+  m_Name: OpenTwitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -334,7 +334,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 24076767}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 233455049}
+        m_MethodName: setTwitterActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &24076767
@@ -444,6 +455,7 @@ GameObject:
   - 65: {fileID: 48377404}
   - 23: {fileID: 48377403}
   - 114: {fileID: 48377407}
+  - 82: {fileID: 48377408}
   m_Layer: 0
   m_Name: Computer
   m_TagString: Untagged
@@ -526,6 +538,80 @@ MonoBehaviour:
   mType: 0
   gameManager: {fileID: 233455051}
   uiManager: {fileID: 233455049}
+--- !u!82 &48377408
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 48377402}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 76f22856cf0275149b29cc172e571c5b, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &125151335
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +789,7 @@ GameObject:
   - 114: {fileID: 184921206}
   - 114: {fileID: 184921205}
   m_Layer: 5
-  m_Name: Option 2
+  m_Name: OpenNews
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -766,7 +852,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 184921206}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 233455049}
+        m_MethodName: setNewspaperActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &184921206
@@ -837,7 +934,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 340.69006, y: 125.92999}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 56, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &204266161
 MonoBehaviour:
@@ -910,8 +1007,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 26f9ca629fe46294284fffc6d5d71e3d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -991,7 +1088,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Option 1
+  m_Text: Twitter
 --- !u!222 &210086801
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1207,6 +1304,8 @@ MonoBehaviour:
   cellphoneCanvas: {fileID: 940056986}
   officerAssignCanvas: {fileID: 125151338}
   dialogueCanvas: {fileID: 1772963270}
+  desktopCanvas: {fileID: 1735117889}
+  desktopSound: {fileID: 0}
   dropZones:
   - {fileID: 1921182905}
   - {fileID: 904764953}
@@ -2560,7 +2659,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Option 2
+  m_Text: News
 --- !u!222 &1293308499
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3256,7 +3355,7 @@ GameObject:
   - 114: {fileID: 1735117888}
   - 114: {fileID: 1735117887}
   m_Layer: 5
-  m_Name: LandlineCanvas
+  m_Name: DesktopCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3595,7 +3694,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Back
+  m_Text: 
 --- !u!222 &1920592560
 CanvasRenderer:
   m_ObjectHideFlags: 0
