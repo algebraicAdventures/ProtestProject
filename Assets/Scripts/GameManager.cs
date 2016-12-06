@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
     bool phoneOn = false;
     bool cellOn = false;
     bool newsOn = true;
+    bool textOn = false;
     public int twitterReadWaitTime = 3;
 
     string PlayerName = "Player";
@@ -900,6 +901,16 @@ public class GameManager : MonoBehaviour {
         if (phoneOn)
         {
             phoneOn = false;
+            nextEvent();
+        }
+    }
+
+    public void setCellInactive()
+    {
+        uiManager.setCellphoneActive(false);
+        if (textOn)
+        {
+            textOn = false;
             nextEvent();
         }
     }
