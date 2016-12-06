@@ -15,7 +15,8 @@ public class ReactToClick : MonoBehaviour {
         switch (mType)
         {
             case ObjectType.Cell:
-                uiManager.activateCellphone();
+                //uiManager.activateCellphone();
+                gameManager.pickUpCell();
                 break;
             case ObjectType.Twitter:
                 uiManager.activateTwitter();
