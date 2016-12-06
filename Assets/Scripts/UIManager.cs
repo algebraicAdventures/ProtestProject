@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
@@ -10,6 +11,8 @@ public class UIManager : MonoBehaviour {
     public Canvas officerAssignCanvas;
     public Canvas dialogueCanvas;
     public Canvas desktopCanvas;
+
+    public Image newspaperImage;
 
     public GameManager gameManger;
 
@@ -36,6 +39,12 @@ public class UIManager : MonoBehaviour {
         desktopCanvas.gameObject.SetActive(false);
 
         mDialogue = dialogueCanvas.GetComponent<Dialogue>();
+    }
+
+
+    public void updateNewspaper(Sprite newPaper)
+    {
+        newspaperImage.sprite = newPaper;
     }
 
     public int getOfficersInArea(int areaIndex)

@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
     public AudioSource cellText;
     public AudioSource cellRing;
 
+    public Sprite[] newspapers;
+
     //public UIManager uiManager;
 
     //private AudioSource ring;
@@ -165,6 +167,8 @@ public class GameManager : MonoBehaviour {
             //day 2 events
             if(currEvent == 0)
             {
+                //update newspaper
+                uiManager.updateNewspaper(newspapers[0]);
                 //display newspaper
                 uiManager.setNewspaperActive(true);
                 newsOn = true;
@@ -224,7 +228,7 @@ public class GameManager : MonoBehaviour {
                 {
                     //Police Union is Watching the Protest Carefully
                     //change newspaper display
-                    print("changing newspaper to union watching protest carefully");
+                    uiManager.updateNewspaper(newspapers[1]);
 
                     //make newspaper appear
                     uiManager.setNewspaperActive(true);
@@ -303,10 +307,12 @@ public class GameManager : MonoBehaviour {
                 if(situationValue < 2)
                 {
                     // Newly Documented Male Held at Gunpoint by Police
+                    uiManager.updateNewspaper(newspapers[2]);
                 }
                 else
                 {
                     //Cop Punches Woman But She Is Arrested for Assaulting a Police Officer or Cops Catch Thief Who Robbed A Family Run Fish and Bait Store
+                    uiManager.updateNewspaper(newspapers[3]);
                 }
 
                 newsOn = true;

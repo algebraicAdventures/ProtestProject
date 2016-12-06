@@ -803,6 +803,7 @@ MonoBehaviour:
   officerAssignCanvas: {fileID: 125151338}
   dialogueCanvas: {fileID: 1772963270}
   desktopCanvas: {fileID: 1735117889}
+  newspaperImage: {fileID: 2096127451}
   gameManger: {fileID: 233455051}
   twitterUpdater: {fileID: 1292360573}
   desktopSound: {fileID: 48377408}
@@ -839,6 +840,17 @@ MonoBehaviour:
   desktopPhone: {fileID: 18220244}
   cellText: {fileID: 1004600484}
   cellRing: {fileID: 1004600484}
+  newspapers:
+  - {fileID: 21300000, guid: 36e820971fad9e4409a78ac56e81a8fb, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 14632ab4fffceb549ba36e1c9a3a98b9, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!224 &234843473 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
@@ -3250,7 +3262,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 340.69, y: 125.93}
+  m_AnchoredPosition: {x: 765, y: 465}
   m_SizeDelta: {x: 56, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2057948774
@@ -3371,7 +3383,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 922.3, y: 246.6}
+  m_SizeDelta: {x: 1600, y: 998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2096127451
 MonoBehaviour:
@@ -3392,7 +3404,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7d771c9ab2bdf044e8831fdc72a963c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 44878898d6d837b479069c4646cb7b39, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
