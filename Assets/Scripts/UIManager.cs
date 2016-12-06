@@ -11,6 +11,10 @@ public class UIManager : MonoBehaviour {
     public Canvas dialogueCanvas;
     public Canvas desktopCanvas;
 
+    public GameManager gameManger;
+
+    public TwitterUpdate twitterUpdater;
+
     public AudioSource desktopSound;
 
     public DropZone[] dropZones;
@@ -175,6 +179,7 @@ public class UIManager : MonoBehaviour {
     public void setTwitterActive(bool val)
     {
         closeUI();
+        twitterUpdater.updateTwitter(gameManger.getSituationValue());
         twitterCanvas.gameObject.SetActive(val);
         //inUse = val;
     }
