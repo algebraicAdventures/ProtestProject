@@ -102,6 +102,7 @@ GameObject:
   - 65: {fileID: 18220241}
   - 23: {fileID: 18220240}
   - 114: {fileID: 18220239}
+  - 82: {fileID: 18220244}
   m_Layer: 0
   m_Name: Landline
   m_TagString: Untagged
@@ -184,6 +185,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!82 &18220244
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 18220238}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8bcef22fadf16464fb00b8cbacc13d65, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &24076764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,6 +1237,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxFieldValue: 5
   twitterReadWaitTime: 3
+  desktopPhone: {fileID: 18220244}
+  desktopRing: {fileID: 8300000, guid: 8bcef22fadf16464fb00b8cbacc13d65, type: 3}
+  cellRing: {fileID: 8300000, guid: 41b42b738412472469af83d174b90b0e, type: 3}
+  cellTextRecieve: {fileID: 8300000, guid: 4a2748a9da2a245458912b92ae3e6534, type: 3}
 --- !u!224 &234843473 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
@@ -1217,7 +1296,7 @@ Prefab:
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 591
+      value: 625
       objectReference: {fileID: 0}
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
@@ -1637,7 +1716,7 @@ Prefab:
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 192
+      value: 226
       objectReference: {fileID: 0}
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
@@ -2205,7 +2284,7 @@ Prefab:
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 458
+      value: 492
       objectReference: {fileID: 0}
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
@@ -2389,7 +2468,7 @@ Prefab:
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 857
+      value: 891
       objectReference: {fileID: 0}
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
@@ -3166,7 +3245,7 @@ Prefab:
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 325
+      value: 359
       objectReference: {fileID: 0}
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
@@ -3632,7 +3711,7 @@ Prefab:
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 724
+      value: 758
       objectReference: {fileID: 0}
     - target: {fileID: 224000013095429296, guid: 1cc0f18f5fcfddd438b33b96812306b5,
         type: 2}

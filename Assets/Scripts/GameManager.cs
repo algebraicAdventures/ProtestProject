@@ -4,8 +4,15 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
     public float maxFieldValue = 5.0f;
+    public int twitterReadWaitTime = 3;
+    public AudioSource desktopPhone;
+    public AudioClip desktopRing;
+    public AudioClip cellRing;
+    public AudioClip cellTextRecieve;
 
     //public UIManager uiManager;
+
+    //private AudioSource ring;
 
     private UIManager uiManager;
     private float publicPerceptionValue;
@@ -21,7 +28,7 @@ public class GameManager : MonoBehaviour {
     bool cellOn = false;
     bool newsOn = true;
     bool textOn = false;
-    public int twitterReadWaitTime = 3;
+    
 
     string PlayerName = "Player";
 
@@ -43,7 +50,6 @@ public class GameManager : MonoBehaviour {
 	//public function for when player is finished with officer assignments
     public void nextEvent()
     {
-        //print("starting the day");
 
         uiManager.closeUI();
 
@@ -56,6 +62,9 @@ public class GameManager : MonoBehaviour {
             {
                 //make the phone ring
                 print("phone is ring");
+
+                //ring.Play();
+                desktopPhone.Play();
                 phoneOn = true;
                 currEvent++;
             }
@@ -80,7 +89,7 @@ public class GameManager : MonoBehaviour {
 
             } else if(currEvent == 3)
             {
-                print("NEW phone ring");
+                desktopPhone.Play();
                 phoneOn = true;
                 currEvent++;
             } else if( currEvent == 4)
@@ -165,7 +174,7 @@ public class GameManager : MonoBehaviour {
             else if(currEvent == 1)
             {
                 //phone ring thing
-                print("DAY 2 BIG RING RONG");
+                desktopPhone.Play();
                 phoneOn = true;
                 currEvent++;
             } else if(currEvent == 2)
@@ -201,12 +210,14 @@ public class GameManager : MonoBehaviour {
                     //make phone ring
                     print("day 2 part 2 phone ring");
                     phoneOn = true;
+                    desktopPhone.Play();
                     currEvent++;
                 } else if(numOffInSection2 >= numOffInSection3 && numOffInSection2 >= numOffInSection1)
                 {
                     //Pregnant Woman Harassed by BKPD Officer
                     print("day 2 part 2 phone ring");
                     phoneOn = true;
+                    desktopPhone.Play();
                     currEvent++;
                 }
                 else
@@ -245,6 +256,7 @@ public class GameManager : MonoBehaviour {
                 //make phone ring again
                 print("fast fast day 2 phone ring");
                 phoneOn = true;
+                desktopPhone.Play();
                 currEvent++;
             } else if(currEvent == 8)
             {
@@ -328,6 +340,7 @@ public class GameManager : MonoBehaviour {
                     //make desk phone
                     print("desk phone ring day 3 optional thing");
                     phoneOn = true;
+                    desktopPhone.Play();
                     currEvent++;
                 }
                 else
@@ -370,6 +383,7 @@ public class GameManager : MonoBehaviour {
                     //Are Guns the Problem? OR Group of Illegal Immigrants Arrested at Protest Site
                     print("asd desk phone ring");
                     phoneOn = true;
+                    desktopPhone.Play();
                     currEvent++;
                 }
             } else if (currEvent == 8)
@@ -489,6 +503,7 @@ public class GameManager : MonoBehaviour {
                     //make phone ring for Cop Stuns Pregnant Woman With Taser
                     print("day 4 phone ring");
                     phoneOn = true;
+                    desktopPhone.Play();
                     currEvent++;
                 }
                 else
@@ -528,6 +543,7 @@ public class GameManager : MonoBehaviour {
                     //phone call
                     print("day 4 phone 2 ring");
                     phoneOn = true;
+                    desktopPhone.Play();
                     currEvent++;
                 }
                 else
@@ -623,6 +639,7 @@ public class GameManager : MonoBehaviour {
                 //start call
                 print("start of D5 phone");
                 phoneOn = true;
+                desktopPhone.Play();
                 currEvent++;
 
             } else if(currEvent == 2)
@@ -646,6 +663,7 @@ public class GameManager : MonoBehaviour {
                     //phone call setup
                     print("Phone ring for violence");
                     phoneOn = true;
+                    desktopPhone.Play();
                     currEvent++;
                 }else
                 {
@@ -682,6 +700,7 @@ public class GameManager : MonoBehaviour {
                     //start call
                     print("teen family sad call start");
                     phoneOn = true;
+                    desktopPhone.Play();
                     currEvent++;
                 }
                 else
@@ -707,6 +726,7 @@ public class GameManager : MonoBehaviour {
                 //make phone call
                 print("end of day 5 call");
                 phoneOn = true;
+                desktopPhone.Play();
                 currEvent++;
             } else if(currEvent == 10)
             {
@@ -901,6 +921,7 @@ public class GameManager : MonoBehaviour {
         if (phoneOn)
         {
             phoneOn = false;
+            desktopPhone.Stop();
             nextEvent();
         }
     }
