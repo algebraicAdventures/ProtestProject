@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour {
     bool cellOn = false;
     bool newsOn = true;
     bool textOn = false;
+
+    bool haveUsedPunchWoman = false;
     
 
     string PlayerName = "Player";
@@ -313,6 +315,7 @@ public class GameManager : MonoBehaviour {
                 {
                     //Cop Punches Woman But She Is Arrested for Assaulting a Police Officer or Cops Catch Thief Who Robbed A Family Run Fish and Bait Store
                     uiManager.updateNewspaper(newspapers[3]);
+                    haveUsedPunchWoman = true;
                 }
 
                 newsOn = true;
@@ -380,6 +383,7 @@ public class GameManager : MonoBehaviour {
                     //Police Union Issues a Statement Saying 'All Cops Are Not Murderers' 
                     //set up newspaper
                     //show paper
+                    uiManager.updateNewspaper(newspapers[4]);
                     newsOn = true;
                     uiManager.setNewspaperActive(true);
                     currEvent += 2;
