@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 60f4759956a04844a84d2319b9c3cd37
+timeCreated: 1480959449
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - FreightMicro Pro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 45b0c7cf8c1586c48bc733502a343e30, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

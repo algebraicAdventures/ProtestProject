@@ -1,0 +1,172 @@
+fileFormatVersion: 2
+guid: c8dea4c6fa4b54b44a3a239256dc683a
+timeCreated: 1480960316
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bookshelf
+    100002: door
+    100004: doorknob
+    100006: filingcabinet
+    100008: filingcabinet1
+    100010: floor
+    100012: pCube1
+    100014: pCube10
+    100016: pCube2
+    100018: pCube3
+    100020: pCube4
+    100022: pCube5
+    100024: pCube6
+    100026: pCube7
+    100028: pCube8
+    100030: pCube9
+    100032: plants
+    100034: //RootNode
+    100036: pot
+    100038: trash
+    100040: walls
+    400000: bookshelf
+    400002: door
+    400004: doorknob
+    400006: filingcabinet
+    400008: filingcabinet1
+    400010: floor
+    400012: pCube1
+    400014: pCube10
+    400016: pCube2
+    400018: pCube3
+    400020: pCube4
+    400022: pCube5
+    400024: pCube6
+    400026: pCube7
+    400028: pCube8
+    400030: pCube9
+    400032: plants
+    400034: //RootNode
+    400036: pot
+    400038: trash
+    400040: walls
+    2300000: bookshelf
+    2300002: door
+    2300004: doorknob
+    2300006: filingcabinet
+    2300008: filingcabinet1
+    2300010: floor
+    2300012: pCube1
+    2300014: pCube10
+    2300016: pCube2
+    2300018: pCube3
+    2300020: pCube4
+    2300022: pCube5
+    2300024: pCube6
+    2300026: pCube7
+    2300028: pCube8
+    2300030: pCube9
+    2300032: pot
+    2300034: trash
+    2300036: walls
+    3300000: bookshelf
+    3300002: door
+    3300004: doorknob
+    3300006: filingcabinet
+    3300008: filingcabinet1
+    3300010: floor
+    3300012: pCube1
+    3300014: pCube10
+    3300016: pCube2
+    3300018: pCube3
+    3300020: pCube4
+    3300022: pCube5
+    3300024: pCube6
+    3300026: pCube7
+    3300028: pCube8
+    3300030: pCube9
+    3300032: pot
+    3300034: trash
+    3300036: walls
+    4300000: walls
+    4300002: door
+    4300004: doorknob
+    4300006: bookshelf
+    4300008: filingcabinet
+    4300010: filingcabinet1
+    4300012: trash
+    4300014: pot
+    4300016: pCube1
+    4300018: pCube2
+    4300020: pCube3
+    4300022: pCube4
+    4300024: pCube5
+    4300026: pCube6
+    4300028: pCube7
+    4300030: pCube8
+    4300032: pCube9
+    4300034: pCube10
+    4300036: floor
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: fda33b65657b4584e8eaa8ccda392290
+timeCreated: 1480959450
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Sofia Pro Soft
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 041ceb11fccdd6649bbd88420ce57511, type: 3}
+  - {fileID: 12800000, guid: 34984c44034898c48a72f2e6c45b26d3, type: 3}
+  - {fileID: 12800000, guid: becede4a7c76f45438b0f228a780e11f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

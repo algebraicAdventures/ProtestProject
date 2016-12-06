@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: bf6d3d46585f15d4b9539fea06618c3d
+timeCreated: 1480959449
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Paralucent
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8c52262052363b942b6f87368d292a1f, type: 3}
+  - {fileID: 12800000, guid: 621dd473f9cffe544808e2c1ffc0b73d, type: 3}
+  - {fileID: 12800000, guid: 5f7933f543ea86f469b7b6e35e3d56f5, type: 3}
+  - {fileID: 12800000, guid: 788a258e22fb707448a034f9826fadc2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
