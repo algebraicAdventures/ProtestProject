@@ -6,8 +6,6 @@ update newspaper accordingly
 	need newspapers as images rather than illustrator things
 update texts accordingly
 	need cell text things
-desktop UI that splits into news/twitter
-	need the ui icons as seperate pictures rather than one flat image
 fonts and colors for dialogue
 	what should be the colors, fonts, and sized of the text?
 Officer assignment UI stuff
