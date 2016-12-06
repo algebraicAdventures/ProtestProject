@@ -595,11 +595,286 @@ public class GameManager : MonoBehaviour {
             }
         }
         /********
-         * DAY 4
+         * DAY 5
          ********/
         else if (currDay == 5)
         {
+            if(currEvent == 0)
+            {
+                //set up newspaper for day
+                if(situationValue < 2)
+                {
+                    //BKPD Officers Currently Investigating Alleged Theft
+                } else if(situationValue < 4)
+                {
+                    //Teen Raised Gun Before Officer Shot Him or  Protest Diffuses After Chief Tightens Security
+                } else
+                {
+                    //FPDE Officer Fatally Shoots a 60-Year-Old Woman
+                }
+                //activate newspaper
+                newsOn = true;
+                uiManager.activateNewspaper();
+                currEvent++;
+            } else if(currEvent == 1)
+            {
+                //Officer call from desk phone
+                //start call
+                print("start of D5 phone");
+                phoneOn = true;
+                currEvent++;
 
+            } else if(currEvent == 2)
+            {
+                //Officer call from desk phone
+                uiManager.addDialogue("Officer", "Hey Chief. How's it going? Things are starting to look pretty busy around here.");
+                uiManager.addDialogue("Officer", "Aside from Ferguson, Berkeley is getting a lot more visitors--press people, criminals, investigators, you name it.");
+                uiManager.addDialogue("Officer", "You're going to have to make a lot of tough decisions around here. But the guys and I on the force are always on our guards.");
+
+                currEvent++;
+            } else if(currEvent == 3)
+            {
+                //wait time
+                Invoke("nextEvent", twitterReadWaitTime);
+                currEvent++;
+            } else if(currEvent == 4)
+            {
+                if(situationValue < 5 && situationValue> 3)
+                {
+                    //Peaceful Protest Turns Violent As protesters Are Seen With Weapons
+                    //phone call setup
+                    print("Phone ring for violence");
+                    phoneOn = true;
+                    currEvent++;
+                }else
+                {
+                    currEvent += 2;
+                }
+            } else if(currEvent == 5)
+            {
+                //Peaceful Protest Turns Violent As protesters Are Seen With Weapons
+                uiManager.addDialogue("Officer", "Hello Chief. This morning, formerly unarmed protesters arrive on site with pocket knives and switchblades to protect themselves. However, because of an increase in weapons, there are fewer protesters than usual. Officers are on standby and it doesn't appear as if the protesters are actively looking to harm anyone.");
+                currEvent++;
+            } else if(currEvent == 6)
+            {
+                //player allocations
+                uiManager.setOfficerAssignActive(true);
+                currEvent++;
+            } else if(currEvent == 7)
+            {
+                //get values
+                numOffInSection1 = uiManager.getOfficersInArea(0); //Write report number
+                numOffInSection2 = uiManager.getOfficersInArea(1); //PR number
+                numOffInSection3 = uiManager.getOfficersInArea(2); //respond to situation number
+
+                if(numOffInSection1 >= numOffInSection2 && numOffInSection1>= numOffInSection3)
+                {
+                    //Chief of Police Issues a Statement Regarding Police Brutality
+                    
+                    //make newspaper active
+                    newsOn = true;
+                    uiManager.activateNewspaper();
+                    currEvent += 2;
+                } else if(numOffInSection2 >= numOffInSection1 && numOffInSection2 >= numOffInSection3)
+                {
+                    //Teenager's Family Questions Silence
+                    //start call
+                    print("teen family sad call start");
+                    phoneOn = true;
+                    currEvent++;
+                }
+                else
+                {
+                    //BKPD Officer Stabbed by Several Protesters at Berkeley City Hall
+
+                    //make newspaper active
+                    newsOn = true;
+                    uiManager.activateNewspaper();
+                    currEvent+=2;
+                }
+            } else if(currEvent == 8)
+            {
+                //Teenager's Family Questions Silence
+                uiManager.addDialogue("Officer", "Hello? The family of the teenager from this morning wants us to continue the investigation on the death of their son.");
+                uiManager.addDialogue("Officer", "They are claiming that the case was dismissed too early and requests that we continue until we find definitive proof and ask that we at least give them the name of the officer who shot him.");
+
+                uiManager.addDialogue(PlayerName, "Please help them the best of your ability.");
+
+                currEvent++;
+            } else if(currEvent == 9)
+            {
+                //make phone call
+                print("end of day 5 call");
+                phoneOn = true;
+                currEvent++;
+            } else if(currEvent == 10)
+            {
+                if(situationValue < 2)
+                {
+                    //officer congratulations
+                    uiManager.addDialogue("Officer", "Good work today, most of the noise has died down.");
+                    uiManager.addDialogue("Officer", "I'll keep you posted.");
+
+                    uiManager.addDialogue(PlayerName, "Thanks for the update.");
+
+                    uiManager.addDialogue("Officer", "Of course");
+
+                } else if(situationValue < 4)
+                {
+                    //Officer reports
+                    uiManager.addDialogue("Officer", "It looks like things will stay the same for a while. I'm not sure how things are looking right now.");
+                    uiManager.addDialogue("Officer", "Everyone's scared, scared of what's yet to come and the things that happened.");
+                    uiManager.addDialogue("Officer", "I'm starting to question if we're actually doing justice for our people.");
+                }
+                else
+                {
+                    //Mayor calls
+                    uiManager.addDialogue("Mayor", "I'm cutting straight to the point--things are getting out of hand. Chief you need to focus. You're not the one out there dealing with the people directly and your men are facing the consequences.");
+                    uiManager.addDialogue("Mayor", "They are serving our city, our country, our people.");
+                    uiManager.addDialogue("Mayor", "If you can't focus, I'll have to replace you.");
+                    uiManager.addDialogue("Mayor", "...");
+                    uiManager.addDialogue("Mayor", "I'm sending some more men over to you tomorrow morning.");
+
+                    uiManager.addDialogue(PlayerName, "Thank you for entrusting your men to me. I'll try to refocus.");
+
+                    uiManager.addDialogue("Mayor", "Good.");
+                }
+
+                currEvent++;
+            }
+            else
+            {
+                //end day 5
+                currDay++;
+                currEvent = 0;
+
+                //fade out then in then call nextEvent
+
+                //fade screen to black
+                print("pretend that I faded to black");
+                //after fade, call the next event
+                nextEvent();
+            }
+        }
+        /********
+         * DAY 6
+         ********/
+        else if (currDay == 6)
+        {
+            if (currEvent == 0)
+            {
+                //newspaper based on situation
+                if(situationValue < 2)
+                {
+                    //BKPD Officers Further Investigate Alleged Theft
+
+                } else if(situationValue < 4)
+                {
+                    //Teen Raised Gun Before Officer Shot Him or  Protest Diffuses After Chief Tightens Security
+                }
+                else
+                {
+                    //Mayor of St. Louis Allocates More Officers to Quell Protest
+                }
+                //activate newspaper
+                newsOn = true;
+                uiManager.activateNewspaper();
+                currEvent++;
+            } else if(currEvent == 1)
+            {
+                //cell phone call
+                print("wife cell call start 6");
+                cellOn = true;
+                currEvent++;
+            } else if(currEvent == 2)
+            {
+                //Wife calls from cell phone
+                uiManager.addDialogue("Wife", "Honey, you looked upset this morning. I was busy with lunch so I couldn't ask but I hope things are alright?");
+                uiManager.addDialogue("Wife", "I know with the protest down at City Hall and the crimes around the city, you are very stressed. But the city needs you now more than ever.");
+                uiManager.addDialogue("Wife", "Take care of yourself before you take on the fate of thousands of people ok? ");
+
+                uiManager.addDialogue(PlayerName, "I'll be fine, thanks honey.");
+
+                uiManager.addDialogue("Wife", "I love you, bye. ");
+
+                currEvent++;
+            } else if(currEvent == 3)
+            {
+                //wait for tweets, etc.
+                //give player wait time
+                Invoke("nextEvent", twitterReadWaitTime);
+                currEvent++;
+            } else if (currEvent == 4)
+            {
+                //allocate officers
+                uiManager.setOfficerAssignActive(true);
+                currEvent++;
+
+            } else if(currEvent == 5)
+            {
+                numOffInSection1 = uiManager.getOfficersInArea(0); //Write report number
+                numOffInSection2 = uiManager.getOfficersInArea(1); //PR number
+                numOffInSection3 = uiManager.getOfficersInArea(2); //respond to situation number
+
+                if(numOffInSection1 >= numOffInSection2 && numOffInSection1 >= numOffInSection3)
+                {
+                    //Police Chief Tells News Reporters That Violence Is Unnecessary
+                } else if(numOffInSection2 >= numOffInSection1 && numOffInSection2 >= numOffInSection3)
+                {
+                    //Officer Names Released in Fatal Shootings
+                }
+                else
+                {
+                    //Friend Says He Would Kill '6 White Devils' in Revenge for Black Teen's Death
+                }
+                //activate newspaper
+                newsOn = true;
+                uiManager.activateNewspaper();
+                currEvent++;
+            } else if(currEvent == 6)
+            {
+                if(situationValue < 4)
+                {
+                    //cell phone call from wife
+                    print("end of game wife call");
+                    cellOn = true;
+                    currEvent++;
+                }
+                else
+                {
+                    currEvent += 2;
+                }
+            } else if(currEvent == 7)
+            {
+                if(situationValue < 2)
+                {
+                    //wife praises
+                    uiManager.addDialogue("Wife", "Hey hon, just following up from earlier today. It looks like things are quiet for now. I'm proud of you.");
+
+                    uiManager.addDialogue(PlayerName, "Anything to make you sleep better at night.");
+                }
+                else
+                {
+                    //wife worries
+                    uiManager.addDialogue("Wife", "Hey hon, do you need a day off?");
+                    uiManager.addDialogue("Wife", "It might be impossible but you need a clear mind to make sound decisions.");
+                    uiManager.addDialogue("Wife", "I'll always be cheering for you dear.");
+
+                    uiManager.addDialogue(PlayerName, "I can't take a day off, but I'm trying my best.");
+
+                    uiManager.addDialogue("Wife", "I hope so.");
+                }
+                currEvent++;
+            }
+            else
+            {
+                //the end of the game
+                print("game is OVER");
+
+                print("fade to black");
+
+                print("your score was " + situationValue);
+            }
         }
         
     }
