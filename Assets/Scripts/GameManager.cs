@@ -6,9 +6,8 @@ public class GameManager : MonoBehaviour {
     public float maxFieldValue = 5.0f;
     public int twitterReadWaitTime = 3;
     public AudioSource desktopPhone;
-    public AudioClip desktopRing;
-    public AudioClip cellRing;
-    public AudioClip cellTextRecieve;
+    public AudioSource cellText;
+    public AudioSource cellRing;
 
     //public UIManager uiManager;
 

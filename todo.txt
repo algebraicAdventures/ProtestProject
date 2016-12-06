@@ -1,0 +1,13 @@
+Audio for cellphone works
+game is in the office we built
+sound effects for interacting with computer works
+update newspaper accordingly
+update texts accordingly
+twitter feature working
+desktop UI that splits into news/twitter
+fonts and colors for dialogue
+Officer assignment UI stuff
+Officer assignment has mechanical effect on game (change situation value)
+Add in more decisions for the player to react to
+	this will require more code to make the UI for that appear and look not terrible
+Transitions from day to day
