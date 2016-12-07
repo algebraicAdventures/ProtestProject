@@ -7,12 +7,22 @@ public class GameManager : MonoBehaviour {
     public float fadeTime = 0.75f;
     public Image fadeScreen;
     public Canvas fadingCanvas;
+    public Text fadingText;
+    public Color fadeTextFullColor;
 
     public float maxFieldValue = 5.0f;
     public int twitterReadWaitTime = 3;
     public AudioSource desktopPhone;
     public AudioSource cellText;
     public AudioSource cellRing;
+
+    public AudioSource bgmAudioSource;
+    public AudioClip bgm01;
+    public AudioClip bgm23;
+    public AudioClip bgm45;
+
+    public float bgmVolumeMax = 1f;
+
 
     public Sprite[] newspapers;
 
@@ -41,27 +51,48 @@ public class GameManager : MonoBehaviour {
     bool haveUsedTeenRaiseGun = false;
 
     bool isFadingOut = false;
+    bool isFadingIn = false;
 
-    
-    
+    string PlayerName = "Player";
+
     public void Update()
     {
         if (isFadingOut)
         {
             //fade color
             fadeScreen.color = Color.Lerp(fadeScreen.color, Color.black, 1.0f / fadeTime * Time.deltaTime);
+            fadingText.color = Color.Lerp(fadingText.color, fadeTextFullColor, 1.0f / fadeTime * Time.deltaTime);
+            //fade bgm
+            bgmAudioSource.volume -= bgmVolumeMax / fadeTime * Time.deltaTime;
             //print("a = " + fadeScreen.color.a);
             if(fadeScreen.color.a >= 0.965f)
             {
                 fadeScreen.color = Color.black;
-                print("fading done");
+                fadingText.color = fadeTextFullColor;
+                //print("fading done");
                 isFadingOut = false;
                 nextEvent();
+                bgmAudioSource.volume = 0f;
+                bgmAudioSource.Stop();
+            }
+        } else if (isFadingIn)
+        {
+            fadeScreen.color = Color.Lerp(fadeScreen.color, Color.clear, 1.0f / fadeTime * Time.deltaTime);
+            fadingText.color = Color.Lerp(fadingText.color, Color.clear, 1.0f / fadeTime * Time.deltaTime);
+            //print("a = " + fadeScreen.color.a);
+            bgmAudioSource.volume += bgmVolumeMax / fadeTime * Time.deltaTime;
+            if (fadeScreen.color.a <= 0.05f)
+            {
+                fadeScreen.color = Color.clear;
+                fadingText.color = Color.clear;
+                //print("fading in done");
+                isFadingIn = false;
+                bgmAudioSource.volume = bgmVolumeMax;
             }
         }
     }
 
-    string PlayerName = "Player";
+    
 
     // Use this for initialization
     void Start () {
@@ -72,7 +103,7 @@ public class GameManager : MonoBehaviour {
         uiManager = this.GetComponent<UIManager>();
 
         //disable the fading canvas
-        //fadingCanvas.gameObject.SetActive(false);
+        fadingCanvas.gameObject.SetActive(false);
 
         //open up initial newspaper
         
@@ -228,20 +259,30 @@ public class GameManager : MonoBehaviour {
                 //fadeScreen.CrossFadeAlpha(1.0f, fadeTime, false);
                 //fadeScreen.CrossFadeColor(Color.black, 2.0f, false);
                 //fadeScreen.Cross
-
+                fadingCanvas.gameObject.SetActive(true);
+                fadingText.text = "DAY 2";
 
                 isFadingOut = true;
                 currEvent++;
                 //after fade, call the next event
                 //nextEvent();
             }
+            else if(currEvent == 9)
+            {
+                //wait a bit before going to the next thing
+                Invoke("nextEvent", twitterReadWaitTime);
+                currEvent++;
+
+                
+            }
             else
             {
+                //the actual end of the day
                 //end the day for real
                 print("end day 1");
                 currDay++;
                 currEvent = 0;
-                fadeScreen.color = Color.clear;
+                //fadeScreen.color = Color.clear;
                 nextEvent();
             }
         }
@@ -254,6 +295,24 @@ public class GameManager : MonoBehaviour {
             //day 2 events
             if(currEvent == 0)
             {
+                int sitVal = Mathf.RoundToInt(situationValue);
+                //set music to be correct
+                if (sitVal <= 1)
+                {
+                    print("audio 01");
+                    bgmAudioSource.clip = bgm01;
+                } else if(sitVal <= 3)
+                {
+                    print("audio 23");
+                    bgmAudioSource.clip = bgm23;
+                }
+                else
+                {
+                    print("audio 45");
+                    bgmAudioSource.clip = bgm45;
+                }
+                bgmAudioSource.Play();
+                isFadingIn = true;
                 //update newspaper
                 uiManager.updateNewspaper(newspapers[0]);
                 //display newspaper
