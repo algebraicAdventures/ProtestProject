@@ -136,8 +136,6 @@ public class GameManager : MonoBehaviour {
             }
             else if (currEvent == 1)
             {
-                //testing, please remove
-                //uiManager.addDecision("me", "hello decision", "yes", "no");
                 //send the initial politican phone call
                 uiManager.addDialogue("Politician", "Good morning Chief, a small group of young adults gathered this morning at Berkeley City Hall. They were holding up posters with 'Am I next?', 'Will You Shoot Me?' and others. They continuously chanted 'Hands up, don't shoot' which garnered attention and attracted crowds of people.");
                 uiManager.addDialogue("Politician", "Currently, the protest appears peaceful but I can never predict these situations. ");
@@ -150,7 +148,7 @@ public class GameManager : MonoBehaviour {
                 //uiManager.addDialogue("Politician", "Thank you.");
                 uiManager.addBranchingText("Politician", "If you think so, chief", "Thank you");
                 currEvent++;
-
+                changeSituationValue(0.1f);
             }
             else if (currEvent == 2)
             {
@@ -175,6 +173,9 @@ public class GameManager : MonoBehaviour {
 
                 //uiManager.addDialogue("Officer", "Yes sir!");
                 uiManager.addBranchingText("Officer", "I... I guess", "Yes sir!");
+
+                changeSituationValue(0.75f);
+
                 currEvent++;
             } else if(currEvent == 5)
             {
@@ -227,6 +228,8 @@ public class GameManager : MonoBehaviour {
 
                 uiManager.addDialogue("Officer", "Mission report, Chief.");
 
+                changeSituationValue(-0.1f);
+
                 if (numOffInSection1 > numOffInSection2)
                 {
                     //more officers on patrol
@@ -235,7 +238,7 @@ public class GameManager : MonoBehaviour {
                     //uiManager.addDialogue("Officer", "With your permission, I will write off the protest as peaceful.");
                     uiManager.addDecision("Officer", "With  your permission, I will write off the protest as peaceful.", "Proceed.", "Let's hold off", 0.05f, 0.15f);
 
-
+                    
                 }
                 else
                 {
@@ -333,6 +336,7 @@ public class GameManager : MonoBehaviour {
                 //uiManager.addDialogue(PlayerName, "I'll see what I can do. ");
                 uiManager.addBranchingText("Officer", "Sir...", "Thank you so much.");
 
+                changeSituationValue(0.25f);
                 currEvent++;
             } else if(currEvent == 3)
             {
@@ -394,11 +398,16 @@ public class GameManager : MonoBehaviour {
                     uiManager.addDialogue("Killer Officer", "You called for me Chief?");
 
                     uiManager.addDialogue(PlayerName, "For misconduct and acting on your own, I am releasing you.");
-                }else
+
+                    changeSituationValue(-0.1f);
+                }
+                else
                 {
                     //uiManager.addDialogue("Officer", "Hey Chief. We're with the woman from Ferguson. New information is in, and it turns out she is pregnant. The groping was also caught on camera and she uses this evidence against the officer, but that doesn't stop the FPDE officer from verbally harassing her.");
                     uiManager.addDecision("Officer", "Hey Chief. We're with the woman from Ferguson. New information is in, and it turns out she is pregnant. The groping was also caught on camera and she uses this evidence against the officer, but that doesn't stop the FPDE officer from verbally harassing her.", "Don't let your guard down", "I would've fired him if I was his chief", -0.05f, +0.7f);
                     //uiManager.addDialogue(PlayerName, "Don't let your guard down.");
+
+                    changeSituationValue(0.4f);
 
                 }
 
@@ -482,6 +491,7 @@ public class GameManager : MonoBehaviour {
                 }
                 bgmAudioSource.Play();
                 isFadingIn = true;
+                changeSituationValue(0.75f);
                 //set up start day 3 newspaper
                 if (situationValue < 2)
                 {
@@ -524,6 +534,7 @@ public class GameManager : MonoBehaviour {
                 currEvent++;
             } else if(currEvent == 4)
             {
+                changeSituationValue(0.25f);
                 print("curEvent == 4");
                 if(situationValue < 3 && situationValue > 1)
                 {
@@ -574,6 +585,8 @@ public class GameManager : MonoBehaviour {
                     newsOn = true;
                     uiManager.setNewspaperActive(true);
                     currEvent += 2;
+
+                    changeSituationValue(0.45f);
                 }
                 else
                 {
@@ -592,6 +605,8 @@ public class GameManager : MonoBehaviour {
                     uiManager.addDialogue("Officer", "They were asked for their papers and some refused, some tried to run and some fought back. We have arrested a handful of them and will continue to report back to you.");
 
                     uiManager.addDialogue(PlayerName, "Good work.");
+
+                    changeSituationValue(1.5f);
                 }
                 else
                 {
@@ -604,6 +619,7 @@ public class GameManager : MonoBehaviour {
                     uiManager.addDialogue(PlayerName, "Please send out a brief report to the other officers detailing the consequences of gun violence.");
 
                     uiManager.addDialogue("Officer", "I'm on it sir!");
+                    changeSituationValue(-0.25f);
                 }
                 currEvent++;
             } else if(currEvent == 9)
@@ -719,11 +735,13 @@ public class GameManager : MonoBehaviour {
                     {
                         //Cop Punches Woman But She Is Arrested for Assaulting a Police Officer
                         uiManager.updateNewspaper(newspapers[3]);
+                        changeSituationValue(0.45f);
                     }
                 } else
                 {
                     //Unarmed White Teenager Shot by Police
                     uiManager.updateNewspaper(newspapers[6]);
+                    changeSituationValue(1.25f);
                 }
                 newsOn = true;
                 uiManager.setNewspaperActive(true);
@@ -769,6 +787,8 @@ public class GameManager : MonoBehaviour {
 
                 uiManager.addDialogue(PlayerName, "I'm glad you guys have the situation under control.");
 
+                changeSituationValue(0.45f);
+
                 currEvent++;
             } else if(currEvent == 5)
             {
@@ -792,7 +812,8 @@ public class GameManager : MonoBehaviour {
                     uiManager.updateNewspaper(newspapers[19]);
                     newsOn = true;
                     uiManager.setNewspaperActive(true);
-                    currEvent+=2;
+                    changeSituationValue(0.55f);
+                    currEvent +=2;
                 }
                 else if(numOffInSection2 > numOffInSection1 && numOffInSection2 > numOffInSection3)
                 {
@@ -802,6 +823,7 @@ public class GameManager : MonoBehaviour {
                     phoneOn = true;
                     desktopPhone.Play();
                     currEvent++;
+                    changeSituationValue(0.35f);
                 }
                 else
                 {
@@ -811,6 +833,7 @@ public class GameManager : MonoBehaviour {
                     newsOn = true;
                     uiManager.setNewspaperActive(true);
                     currEvent += 2;
+                    changeSituationValue(-0.1f);
                 }
             }else if (currEvent == 7)
             {
@@ -928,6 +951,7 @@ public class GameManager : MonoBehaviour {
                 {
                     //FPDE Officer Fatally Shoots a 60-Year-Old Woman
                     uiManager.updateNewspaper(newspapers[10]);
+                    changeSituationValue(0.75f);
                 }
                 //activate newspaper
                 newsOn = true;
@@ -980,6 +1004,8 @@ public class GameManager : MonoBehaviour {
                 uiManager.addDialogue("Officer", "Hello Chief. This morning, formerly unarmed protesters arrive on site with pocket knives and switchblades to protect themselves. However, because of an increase in weapons, there are fewer protesters than usual. Officers are on standby and it doesn't appear as if the protesters are actively looking to harm anyone.");
 
                 uiManager.addDialogue(PlayerName, "Keep your eyes out");
+
+                changeSituationValue(0.45f);
                 currEvent++;
             } else if(currEvent == 6)
             {
@@ -993,7 +1019,7 @@ public class GameManager : MonoBehaviour {
                 numOffInSection2 = uiManager.getOfficersInArea(1); //PR number
                 numOffInSection3 = uiManager.getOfficersInArea(2); //respond to situation number
 
-                changeSituationValue(-0.15f * numOffInSection1 + 0.1f * numOffInSection2 * 0.25f * numOffInSection3);
+                changeSituationValue(-0.15f * numOffInSection1 + 0.1f * numOffInSection2 + 0.25f * numOffInSection3);
 
                 if(numOffInSection1 >= numOffInSection2 && numOffInSection1>= numOffInSection3)
                 {
@@ -1003,6 +1029,7 @@ public class GameManager : MonoBehaviour {
                     newsOn = true;
                     uiManager.activateNewspaper();
                     currEvent += 2;
+                    changeSituationValue(-0.25f);
                 } else if(numOffInSection2 >= numOffInSection1 && numOffInSection2 >= numOffInSection3)
                 {
                     //Teenager's Family Questions Silence
@@ -1021,6 +1048,8 @@ public class GameManager : MonoBehaviour {
                     newsOn = true;
                     uiManager.activateNewspaper();
                     currEvent+=2;
+
+                    changeSituationValue(1.0f);
                 }
             } else if(currEvent == 8)
             {
@@ -1199,15 +1228,18 @@ public class GameManager : MonoBehaviour {
                 {
                     //Police Chief Tells News Reporters That Violence Is Unnecessary
                     uiManager.updateNewspaper(newspapers[18]);
+                    changeSituationValue(-0.1f);
                 } else if(numOffInSection2 >= numOffInSection1 && numOffInSection2 >= numOffInSection3)
                 {
                     //Officer Names Released in Fatal Shootings
                     uiManager.updateNewspaper(newspapers[16]);
+                    changeSituationValue(0.15f);
                 }
                 else
                 {
                     //Friend Says He Would Kill '6 White Devils' in Revenge for Black Teen's Death
                     uiManager.updateNewspaper(newspapers[17]);
+                    changeSituationValue(0.5f);
                 }
                 //activate newspaper
                 newsOn = true;
