@@ -463,8 +463,27 @@ public class GameManager : MonoBehaviour {
         {
             if(currEvent == 0)
             {
+                int sitVal = Mathf.RoundToInt(situationValue);
+                //set music to be correct
+                if (sitVal <= 1)
+                {
+                    print("audio 01");
+                    bgmAudioSource.clip = bgm01;
+                }
+                else if (sitVal <= 3)
+                {
+                    print("audio 23");
+                    bgmAudioSource.clip = bgm23;
+                }
+                else
+                {
+                    print("audio 45");
+                    bgmAudioSource.clip = bgm45;
+                }
+                bgmAudioSource.Play();
+                isFadingIn = true;
                 //set up start day 3 newspaper
-                if(situationValue < 2)
+                if (situationValue < 2)
                 {
                     // Newly Documented Male Held at Gunpoint by Police
                     uiManager.updateNewspaper(newspapers[2]);
@@ -663,8 +682,27 @@ public class GameManager : MonoBehaviour {
         {
             if(currEvent == 0)
             {
+                int sitVal = Mathf.RoundToInt(situationValue);
+                //set music to be correct
+                if (sitVal <= 1)
+                {
+                    print("audio 01");
+                    bgmAudioSource.clip = bgm01;
+                }
+                else if (sitVal <= 3)
+                {
+                    print("audio 23");
+                    bgmAudioSource.clip = bgm23;
+                }
+                else
+                {
+                    print("audio 45");
+                    bgmAudioSource.clip = bgm45;
+                }
+                bgmAudioSource.Play();
+                isFadingIn = true;
                 //open up newspaper for the day with correct info
-                if(situationValue < 2)
+                if (situationValue < 2)
                 {
                     //Newly Documented Male Held at Gunpoint by Police
                     uiManager.updateNewspaper(newspapers[2]);
@@ -857,8 +895,27 @@ public class GameManager : MonoBehaviour {
         {
             if(currEvent == 0)
             {
+                int sitVal = Mathf.RoundToInt(situationValue);
+                //set music to be correct
+                if (sitVal <= 1)
+                {
+                    print("audio 01");
+                    bgmAudioSource.clip = bgm01;
+                }
+                else if (sitVal <= 3)
+                {
+                    print("audio 23");
+                    bgmAudioSource.clip = bgm23;
+                }
+                else
+                {
+                    print("audio 45");
+                    bgmAudioSource.clip = bgm45;
+                }
+                bgmAudioSource.Play();
+                isFadingIn = true;
                 //set up newspaper for day
-                if(situationValue < 2)
+                if (situationValue < 2)
                 {
                     //BKPD Officers Currently Investigating Alleged Theft
                     uiManager.updateNewspaper(newspapers[8]);
@@ -1047,8 +1104,27 @@ public class GameManager : MonoBehaviour {
         {
             if (currEvent == 0)
             {
+                int sitVal = Mathf.RoundToInt(situationValue);
+                //set music to be correct
+                if (sitVal <= 1)
+                {
+                    print("audio 01");
+                    bgmAudioSource.clip = bgm01;
+                }
+                else if (sitVal <= 3)
+                {
+                    print("audio 23");
+                    bgmAudioSource.clip = bgm23;
+                }
+                else
+                {
+                    print("audio 45");
+                    bgmAudioSource.clip = bgm45;
+                }
+                bgmAudioSource.Play();
+                isFadingIn = true;
                 //newspaper based on situation
-                if(situationValue < 2)
+                if (situationValue < 2)
                 {
                     //BKPD Officers Further Investigate Alleged Theft
                     uiManager.updateNewspaper(newspapers[13]);
