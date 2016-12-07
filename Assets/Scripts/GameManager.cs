@@ -132,6 +132,34 @@ public class GameManager : MonoBehaviour {
                 numOffInSection1 = uiManager.getOfficersInArea(0); //patrol number
                 numOffInSection2 = uiManager.getOfficersInArea(1); //PR number
 
+                //update situation value based on player assignment
+                if(numOffInSection1 == 0)
+                {
+                    changeSituationValue(0.4f);
+                } else if(numOffInSection1 == 1)
+                {
+                    changeSituationValue(0.3f);
+                }
+                else if (numOffInSection1 == 2)
+                {
+                    changeSituationValue(0.2f);
+                }
+                else if (numOffInSection1 == 3)
+                {
+                    changeSituationValue(0.1f);
+                }
+                else if (numOffInSection1 == 4)
+                {
+                    changeSituationValue(-0.1f);
+                }
+                else if (numOffInSection1 == 5)
+                {
+                    changeSituationValue(0.2f);
+                }
+                else
+                {
+                    changeSituationValue(0.3f);
+                }
 
                 uiManager.addDialogue("Officer", "Mission report, Chief.");
 
@@ -230,7 +258,10 @@ public class GameManager : MonoBehaviour {
                 numOffInSection2 = uiManager.getOfficersInArea(1); //PR number
                 numOffInSection3 = uiManager.getOfficersInArea(2); //Riot Control
 
-                if(numOffInSection3 >= numOffInSection2 && numOffInSection3 >= numOffInSection1)
+
+                changeSituationValue(0.25f + 0.05f * numOffInSection1 + 0.05f * numOffInSection2 - 0.1f * numOffInSection3);
+
+                if(numOffInSection3 > numOffInSection2 && numOffInSection3 > numOffInSection1)
                 {
                     //Officer Who Shot Teenager Fired by Police Chief
                     //make phone ring
@@ -238,7 +269,7 @@ public class GameManager : MonoBehaviour {
                     phoneOn = true;
                     desktopPhone.Play();
                     currEvent++;
-                } else if(numOffInSection2 >= numOffInSection3 && numOffInSection2 >= numOffInSection1)
+                } else if(numOffInSection2 > numOffInSection3 && numOffInSection2 > numOffInSection1)
                 {
                     //Pregnant Woman Harassed by BKPD Officer
                     print("day 2 part 2 phone ring");
@@ -400,11 +431,14 @@ public class GameManager : MonoBehaviour {
                 uiManager.setZoneLabel(0, "Write Reports");
                 uiManager.setOfficerAssignActive(true);
                 currEvent++;
+
             } else if(currEvent == 7)
             {
                 numOffInSection1 = uiManager.getOfficersInArea(0); //Write report
                 numOffInSection2 = uiManager.getOfficersInArea(1); //PR number
                 numOffInSection3 = uiManager.getOfficersInArea(2); //Riot control
+
+                changeSituationValue(0.5f + -0.05f * numOffInSection1 + 0.02f * numOffInSection2 + -0.15f * numOffInSection3);
 
                 if(numOffInSection1 >= numOffInSection2 && numOffInSection1 >= numOffInSection3)
                 {
@@ -594,6 +628,8 @@ public class GameManager : MonoBehaviour {
                 numOffInSection2 = uiManager.getOfficersInArea(1); //PR number
                 numOffInSection3 = uiManager.getOfficersInArea(2); //respond to situation number
 
+                changeSituationValue(0.25f + 0.1f * numOffInSection1 + 0.05f * numOffInSection2 - 0.1f * numOffInSection3);
+
                 if(numOffInSection1 > numOffInSection2 && numOffInSection1 > numOffInSection3)
                 {
                     //BKPD Reports That Officers Will Use Weapons if Provoked - Nothing New
@@ -772,6 +808,8 @@ public class GameManager : MonoBehaviour {
                 numOffInSection2 = uiManager.getOfficersInArea(1); //PR number
                 numOffInSection3 = uiManager.getOfficersInArea(2); //respond to situation number
 
+                changeSituationValue(-0.15f * numOffInSection1 + 0.1f * numOffInSection2 * 0.25f * numOffInSection3);
+
                 if(numOffInSection1 >= numOffInSection2 && numOffInSection1>= numOffInSection3)
                 {
                     //Chief of Police Issues a Statement Regarding Police Brutality
@@ -939,6 +977,8 @@ public class GameManager : MonoBehaviour {
                 numOffInSection1 = uiManager.getOfficersInArea(0); //Write report number
                 numOffInSection2 = uiManager.getOfficersInArea(1); //PR number
                 numOffInSection3 = uiManager.getOfficersInArea(2); //respond to situation number
+
+                changeSituationValue(-0.2f + -0.05f * numOffInSection1 + 0.05f * numOffInSection2 * 0.15f * numOffInSection3); ;
 
                 if(numOffInSection1 >= numOffInSection2 && numOffInSection1 >= numOffInSection3)
                 {
