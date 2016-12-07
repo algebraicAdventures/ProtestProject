@@ -1,8 +1,7 @@
 programming stuff:
 Audio for cellphone works (text notification and call)
 	want to wait to put things onto actuall cell phone object
-update texts accordingly
-	need cell text things
+Default events cause changes in situation value
 Officer assignment has mechanical effect on game (change situation value)
 	talk to carol about what it should be
 Player Choices
@@ -21,5 +20,6 @@ Transitions from day to day
 
 Names for officer, player, son, wife, mayor, politician, ??
 
+lighting
 
 end of game screen

@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour {
     public Canvas desktopCanvas;
 
     public Image newspaperImage;
+    public Image textImage;
 
     public GameManager gameManger;
 
@@ -45,6 +46,11 @@ public class UIManager : MonoBehaviour {
     public void updateNewspaper(Sprite newPaper)
     {
         newspaperImage.sprite = newPaper;
+    }
+
+    public void updateCellImage(Sprite newText)
+    {
+        textImage.sprite = newText;
     }
 
     public int getOfficersInArea(int areaIndex)

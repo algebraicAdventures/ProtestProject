@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 
     public Sprite[] newspapers;
 
+    public Sprite[] Texts;
+
     //public UIManager uiManager;
 
     //private AudioSource ring;
@@ -445,6 +447,7 @@ public class GameManager : MonoBehaviour {
                 {
                     //Son Scolds
                     //make the new text and have the story advance when player closes cell phone
+                    uiManager.updateCellImage(Texts[3]);
                     textOn = true;
                     currEvent += 2;
                 }
@@ -525,6 +528,7 @@ public class GameManager : MonoBehaviour {
             {
                 //recieve text from daughter
                 textOn = true;
+                uiManager.updateCellImage(Texts[0]);
                 print("daughter text");
             } else if (currEvent == 2)
             {
@@ -609,11 +613,13 @@ public class GameManager : MonoBehaviour {
                 {
                     //Daughter Thanks
                     textOn = true;
+                    uiManager.updateCellImage(Texts[1]);
                     currEvent += 2;
                 } else if(situationValue < 4)
                 {
                     //Daughter Worries
                     textOn = true;
+                    uiManager.updateCellImage(Texts[2]);
                     currEvent += 2;
                 }
                 else
