@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour {
     bool textOn = false;
 
     bool haveUsedPunchWoman = false;
+    bool haveUsedTeenRaiseGun = false;
     
 
     string PlayerName = "Player";
@@ -486,13 +487,25 @@ public class GameManager : MonoBehaviour {
                 if(situationValue < 2)
                 {
                     //Newly Documented Male Held at Gunpoint by Police
+                    uiManager.updateNewspaper(newspapers[2]);
 
                 } else if(situationValue < 4)
                 {
-                    //Cop Punches Woman But She Is Arrested for Assaulting a Police Officer or Cops Catch Thief Who Robbed A Family Run Fish and Bait Store
+                    
+                    if (haveUsedPunchWoman)
+                    {
+                        //Cops Catch Thief Who Robbed A Family Run Fish and Bait Store
+                        uiManager.updateNewspaper(newspapers[5]);
+                    }
+                    else
+                    {
+                        //Cop Punches Woman But She Is Arrested for Assaulting a Police Officer
+                        uiManager.updateNewspaper(newspapers[3]);
+                    }
                 } else
                 {
                     //Unarmed White Teenager Shot by Police
+                    uiManager.updateNewspaper(newspapers[6]);
                 }
                 newsOn = true;
                 uiManager.setNewspaperActive(true);
@@ -544,6 +557,7 @@ public class GameManager : MonoBehaviour {
                 {
                     //BKPD Reports That Officers Will Use Weapons if Provoked - Nothing New
                     //newspaper setup
+                    uiManager.updateNewspaper(newspapers[19]);
                     newsOn = true;
                     uiManager.setNewspaperActive(true);
                     currEvent+=2;
@@ -561,6 +575,7 @@ public class GameManager : MonoBehaviour {
                 {
                     //Police Officer Fired for Misconduct
                     //newspaper
+                    uiManager.updateNewspaper(newspapers[7]);
                     newsOn = true;
                     uiManager.setNewspaperActive(true);
                     currEvent += 2;
@@ -635,12 +650,16 @@ public class GameManager : MonoBehaviour {
                 if(situationValue < 2)
                 {
                     //BKPD Officers Currently Investigating Alleged Theft
+                    uiManager.updateNewspaper(newspapers[8]);
                 } else if(situationValue < 4)
                 {
                     //Teen Raised Gun Before Officer Shot Him or  Protest Diffuses After Chief Tightens Security
+                    uiManager.updateNewspaper(newspapers[9]);
+                    haveUsedTeenRaiseGun = true;
                 } else
                 {
                     //FPDE Officer Fatally Shoots a 60-Year-Old Woman
+                    uiManager.updateNewspaper(newspapers[10]);
                 }
                 //activate newspaper
                 newsOn = true;
@@ -702,7 +721,7 @@ public class GameManager : MonoBehaviour {
                 if(numOffInSection1 >= numOffInSection2 && numOffInSection1>= numOffInSection3)
                 {
                     //Chief of Police Issues a Statement Regarding Police Brutality
-                    
+                    uiManager.updateNewspaper(newspapers[12]);
                     //make newspaper active
                     newsOn = true;
                     uiManager.activateNewspaper();
@@ -721,6 +740,7 @@ public class GameManager : MonoBehaviour {
                     //BKPD Officer Stabbed by Several Protesters at Berkeley City Hall
 
                     //make newspaper active
+                    uiManager.updateNewspaper(newspapers[11]);
                     newsOn = true;
                     uiManager.activateNewspaper();
                     currEvent+=2;
@@ -801,16 +821,30 @@ public class GameManager : MonoBehaviour {
                 if(situationValue < 2)
                 {
                     //BKPD Officers Further Investigate Alleged Theft
+                    uiManager.updateNewspaper(newspapers[13]);
 
                 } else if(situationValue < 4)
                 {
                     //Teen Raised Gun Before Officer Shot Him or  Protest Diffuses After Chief Tightens Security
+                    if (haveUsedTeenRaiseGun)
+                    {
+                        //Protest Diffuses After Chief Tightens Security
+                        uiManager.updateNewspaper(newspapers[14]);
+                    }
+                    else
+                    {
+                        //Teen Raised Gun Before Officer Shot Him
+                        uiManager.updateNewspaper(newspapers[9]);
+                    }
+
                 }
                 else
                 {
                     //Mayor of St. Louis Allocates More Officers to Quell Protest
+                    uiManager.updateNewspaper(newspapers[15]);
                 }
                 //activate newspaper
+
                 newsOn = true;
                 uiManager.activateNewspaper();
                 currEvent++;
@@ -853,13 +887,16 @@ public class GameManager : MonoBehaviour {
                 if(numOffInSection1 >= numOffInSection2 && numOffInSection1 >= numOffInSection3)
                 {
                     //Police Chief Tells News Reporters That Violence Is Unnecessary
+                    uiManager.updateNewspaper(newspapers[18]);
                 } else if(numOffInSection2 >= numOffInSection1 && numOffInSection2 >= numOffInSection3)
                 {
                     //Officer Names Released in Fatal Shootings
+                    uiManager.updateNewspaper(newspapers[16]);
                 }
                 else
                 {
                     //Friend Says He Would Kill '6 White Devils' in Revenge for Black Teen's Death
+                    uiManager.updateNewspaper(newspapers[17]);
                 }
                 //activate newspaper
                 newsOn = true;
