@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1000012121923870}
+  m_IsPrefabParent: 1
+--- !u!1 &1000012121923870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000014150142584}
+  - 114: {fileID: 114000011432752434}
+  - 114: {fileID: 114000013864926686}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000014150142584
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012121923870}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6215505, y: -4.3898106, z: -15.527684}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114000011432752434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012121923870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9115237638290bd4c9d9fe0ee8a38124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newspaperCanvas: {fileID: 0}
+  twitterCanvas: {fileID: 0}
+  landlineCanvas: {fileID: 0}
+  cellphoneCanvas: {fileID: 0}
+  officerAssignCanvas: {fileID: 0}
+  dialogueCanvas: {fileID: 0}
+  desktopCanvas: {fileID: 0}
+  newspaperImage: {fileID: 0}
+  gameManger: {fileID: 114000013864926686}
+  twitterUpdater: {fileID: 0}
+  desktopSound: {fileID: 0}
+  dropZones:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &114000013864926686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012121923870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d92f084cb4cc84585bd0979bc0cd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxFieldValue: 5
+  twitterReadWaitTime: 3
+  desktopPhone: {fileID: 0}
+  cellText: {fileID: 0}
+  cellRing: {fileID: 0}
+  newspapers:
+  - {fileID: 21300000, guid: 36e820971fad9e4409a78ac56e81a8fb, type: 3}
+  - {fileID: 21300000, guid: 4f7e5b6fb80aa9d4b9c0430281474b89, type: 3}
+  - {fileID: 21300000, guid: 14632ab4fffceb549ba36e1c9a3a98b9, type: 3}
+  - {fileID: 21300000, guid: 0eecdd0e80c183640877b29fcd7e3854, type: 3}
+  - {fileID: 21300000, guid: c1a1556ef050d99468c9340dc9ee07f3, type: 3}
+  - {fileID: 21300000, guid: 4dc4eabbd04cbb446a02ff8a8a83afa3, type: 3}
+  - {fileID: 21300000, guid: 2f9a3a1746334ee4fb00d3a91be6d93e, type: 3}
+  - {fileID: 21300000, guid: a78220b1082270249b591e88e713dae5, type: 3}
+  - {fileID: 21300000, guid: 609452eb9c4928843980b893cc029cad, type: 3}
+  - {fileID: 21300000, guid: f11bb17d335c3774eb5d9575a1c6556d, type: 3}
+  - {fileID: 21300000, guid: 89ad6ec696db89440b00ca50ed2b939c, type: 3}
+  - {fileID: 21300000, guid: 6b3742869d7f6954fbaf268bd43d53b6, type: 3}
+  - {fileID: 21300000, guid: 14facff59a4c06646bc1d5348dc5c0c2, type: 3}
+  - {fileID: 21300000, guid: 60c021fab5a572b4b830b925b866bbe6, type: 3}
+  - {fileID: 21300000, guid: 87e7da907548d554e8fdec5586c46afa, type: 3}
+  - {fileID: 21300000, guid: 2769443b08fad8447ad8e5caa2270a75, type: 3}
+  - {fileID: 21300000, guid: 1c0cff8090555144d9394f825aff6ebf, type: 3}
+  - {fileID: 21300000, guid: c067b0ec1f60c094ca017ab3c2bd76bf, type: 3}
+  - {fileID: 21300000, guid: 7a0118a75a3429d4dbdeaa98b6fa14d3, type: 3}
+  - {fileID: 21300000, guid: 0dc4e7955c1fffc438500d8d36029656, type: 3}
