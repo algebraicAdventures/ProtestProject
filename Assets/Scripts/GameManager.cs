@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour {
     private float cityStatusValue;
 
     private int currEvent = 0;
-    private int currDay = 1;
+    private int currDay = 4;
     int numOffInSection1 = 0;
     int numOffInSection2 = 0;
     int numOffInSection3 = 0;
@@ -506,10 +506,10 @@ public class GameManager : MonoBehaviour {
             } else if(currEvent == 2)
             {
                 //Son Calls from Cell Phone
-                uiManager.addDialogue("Son", "Hey dad? I saw the news a few days ago and... that guy that was shot... that was really close to where we live.");
-                uiManager.addDialogue("Son", "I-I'm scared. Dad, guns are dangerous aren't they? The police have other weapons right? Why do they need guns? They just... they just end things too quickly--without giving the other person a chance to explain themselves.");
-                //uiManager.addDialogue("Son", "I don't think they're the answer...");
-                uiManager.addDecision("Son", "I don't think they're the answer...", "You've never felt the power of holding a gun.", " Don't worry son, I'm taking care of it. Say hi to your mother for me. ", +1, -0.1f);
+                uiManager.addDialogue("Jason", "Hey dad? I saw the news a few days ago and... that guy that was shot... that was really close to where we live.");
+                uiManager.addDialogue("Jason", "I-I'm scared. Dad, guns are dangerous aren't they? The police have other weapons right? Why do they need guns? They just... they just end things too quickly--without giving the other person a chance to explain themselves.");
+                //uiManager.addDialogue("Jason", "I don't think they're the answer...");
+                uiManager.addDecision("Jason", "I don't think they're the answer...", "You've never felt the power of holding a gun.", " Don't worry son, I'm taking care of it. Say hi to your mother for me. ", +1, -0.1f);
                 currEvent++;
                 //uiManager.addDialogue(PlayerName, "Don't worry son, I'm taking care of it. Say hi to your mother for me.");
 
@@ -629,22 +629,22 @@ public class GameManager : MonoBehaviour {
                 if(situationValue < 2)
                 {
                     //Son Thanks
-                    uiManager.addDialogue("Son", "Hey dad, it's me again. I guess I was just overthinking things again.");
-                    uiManager.addDialogue("Son", "Thanks for considering what I said. It really means a lot.");
+                    uiManager.addDialogue("Jason", "Hey dad, it's me again. I guess I was just overthinking things again.");
+                    uiManager.addDialogue("Jason", "Thanks for considering what I said. It really means a lot.");
 
                     uiManager.addDialogue(PlayerName, "Anything for you, son.");
 
-                    uiManager.addDialogue("Son", "You're the best, dad");
+                    uiManager.addDialogue("Jason", "You're the best, dad");
                 }
                 else
                 {
                     //Son Worries
-                    uiManager.addDialogue("Son", "Dad... I don't know if you made the right choice, but I hope you did. I want to trust you and your police officers. Mom says I should because she knows you better than anyone.");
-                    uiManager.addDialogue("Son", "Please come home safe.");
+                    uiManager.addDialogue("Jason", "Dad... I don't know if you made the right choice, but I hope you did. I want to trust you and your police officers. Mom says I should because she knows you better than anyone.");
+                    uiManager.addDialogue("Jason", "Please come home safe.");
 
                     uiManager.addDialogue(PlayerName, "Just trust me.");
 
-                    uiManager.addDialogue("Son", "Alright...");
+                    uiManager.addDialogue("Jason", "Alright...");
                 }
 
                 currEvent++;
@@ -846,15 +846,16 @@ public class GameManager : MonoBehaviour {
             }else if(currEvent == 9)
             {
                 //Daughter scolds
-                uiManager.addDialogue("Daughter", "Dad! What are you doing?? You're in charge of the police officers right? These guys are supposed to be keeping us safe!");
-                uiManager.addDialogue("Daughter", "My friend knew that woman and now her family is getting harassed every time they leave the house.");
-                //uiManager.addDialogue("Daughter", "How could you do this?");
-                uiManager.addDecision("Daughter", "How could you do this?", "I'm trying to doing what's best for everyone", "At least it's not us", -0.5f, +1.0f);
+                uiManager.addDialogue("Sarah", "Dad! What are you doing?? You're in charge of the police officers right? These guys are supposed to be keeping us safe!");
+                uiManager.addDialogue("Sarah", "My friend knew that woman and now her family is getting harassed every time they leave the house.");
+                //uiManager.addDialogue("Sarah", "How could you do this?");
+                uiManager.addDecision("Sarah", "How could you do this?", "I'm trying to doing what's best for everyone", "At least it's not us", -0.5f, +1.0f);
 
                 //uiManager.addDialogue(PlayerName, "I'm doing what's best for everyone.");
 
-                //uiManager.addDialogue("Daughter", "Well, try harder!");
-                uiManager.addBranchingText("Daughter", "Well, try harder!", "How can you even say that!");
+                //uiManager.addDialogue("Sarah", "Well, try harder!");
+                uiManager.addBranchingText("Sarah", "Well, try harder!", "How can you even say that!");
+                currEvent++;
             }
             else if (currEvent == 10)
             {
