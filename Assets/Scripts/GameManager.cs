@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour {
     private float cityStatusValue;
 
     private int currEvent = 0;
-    private int currDay = 4;
+    private int currDay = 1;
     int numOffInSection1 = 0;
     int numOffInSection2 = 0;
     int numOffInSection3 = 0;
