@@ -23,6 +23,8 @@ public class UIManager : MonoBehaviour {
 
     public DropZone[] dropZones;
 
+    public Text[] zoneTexts;
+
     private Dialogue mDialogue;
 
     //bool inUse = true;
@@ -63,6 +65,17 @@ public class UIManager : MonoBehaviour {
         //dz1.chi
 
         return dropZones[areaIndex].transform.childCount;
+    }
+
+    public void setZoneActive(int zoneIndex, bool isActive)
+    {
+        dropZones[zoneIndex].gameObject.SetActive(isActive);
+        zoneTexts[zoneIndex].gameObject.SetActive(isActive);
+    }
+
+    public void setZoneLabel(int zoneIndex, string label)
+    {
+        zoneTexts[zoneIndex].text = label;
     }
 
     public void addDialogue(string speaker, string message)

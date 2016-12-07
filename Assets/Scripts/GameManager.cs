@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour {
 
     bool haveUsedPunchWoman = false;
     bool haveUsedTeenRaiseGun = false;
+
     
 
     string PlayerName = "Player";
@@ -119,6 +121,9 @@ public class GameManager : MonoBehaviour {
             } else if(currEvent == 5)
             {
                 //have the player assign officers between PR and patrol
+                uiManager.setZoneActive(2, false);
+                uiManager.setZoneLabel(0, "Patrol");
+                uiManager.setZoneLabel(1, "Public Relations");
                 uiManager.setOfficerAssignActive(true);
                 currEvent++;
             } else if(currEvent == 6)
@@ -209,6 +214,8 @@ public class GameManager : MonoBehaviour {
             {
                 //officer assignment
                 //may want to do something to activate third box in the thing
+                uiManager.setZoneActive(2, true);
+                uiManager.setZoneLabel(2, "Riot Control");
                 uiManager.setOfficerAssignActive(true);
                 currEvent++;
 
@@ -221,7 +228,7 @@ public class GameManager : MonoBehaviour {
                 //get officer assignment
                 numOffInSection1 = uiManager.getOfficersInArea(0); //patrol number
                 numOffInSection2 = uiManager.getOfficersInArea(1); //PR number
-                numOffInSection3 = uiManager.getOfficersInArea(2); //respond to situation number
+                numOffInSection3 = uiManager.getOfficersInArea(2); //Riot Control
 
                 if(numOffInSection3 >= numOffInSection2 && numOffInSection3 >= numOffInSection1)
                 {
@@ -390,13 +397,14 @@ public class GameManager : MonoBehaviour {
             {
                 print("currEvent == 6");
                 //allocate officers
+                uiManager.setZoneLabel(0, "Write Reports");
                 uiManager.setOfficerAssignActive(true);
                 currEvent++;
             } else if(currEvent == 7)
             {
                 numOffInSection1 = uiManager.getOfficersInArea(0); //Write report
                 numOffInSection2 = uiManager.getOfficersInArea(1); //PR number
-                numOffInSection3 = uiManager.getOfficersInArea(2); //respond to situation number
+                numOffInSection3 = uiManager.getOfficersInArea(2); //Riot control
 
                 if(numOffInSection1 >= numOffInSection2 && numOffInSection1 >= numOffInSection3)
                 {

@@ -1,6 +1,5 @@
 programming stuff:
-Audio for cellphone works (text notification and call)
-	want to wait to put things onto actuall cell phone object
+
 Default events cause changes in situation value
 Officer assignment has mechanical effect on game (change situation value)
 	talk to carol about what it should be
@@ -10,9 +9,6 @@ Officer assignment has mechanical effect on game (change situation value)
 Assets needed:
 Officer assignment UI stuff
 	need officer assign pushed as image
-Buttons for dialogue stuff
-	Next message button, buttons for choice A or B
-		A or B buttons should have no text on them but will have text in the game depending on situation
 
 Transitions from day to day
 	fade out or screen goes straight to black
