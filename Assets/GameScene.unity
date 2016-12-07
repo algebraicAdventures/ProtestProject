@@ -1104,7 +1104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9852941, g: 0.9852941, b: 0.9852941, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1388,7 +1388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2605,7 +2605,7 @@ Prefab:
     - target: {fileID: 224000011436242974, guid: 30fcc585daa8dc446b90a3c00b84d7ec,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 192
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 224000011436242974, guid: 30fcc585daa8dc446b90a3c00b84d7ec,
         type: 2}
@@ -2635,7 +2635,7 @@ Prefab:
     - target: {fileID: 224000010863785410, guid: 30fcc585daa8dc446b90a3c00b84d7ec,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 325
+      value: 323
       objectReference: {fileID: 0}
     - target: {fileID: 224000010863785410, guid: 30fcc585daa8dc446b90a3c00b84d7ec,
         type: 2}
@@ -2665,7 +2665,7 @@ Prefab:
     - target: {fileID: 224000011032816606, guid: 30fcc585daa8dc446b90a3c00b84d7ec,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 458
+      value: 456
       objectReference: {fileID: 0}
     - target: {fileID: 224000011032816606, guid: 30fcc585daa8dc446b90a3c00b84d7ec,
         type: 2}
@@ -2695,7 +2695,7 @@ Prefab:
     - target: {fileID: 224000010017698794, guid: 30fcc585daa8dc446b90a3c00b84d7ec,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 591
+      value: 589
       objectReference: {fileID: 0}
     - target: {fileID: 224000010017698794, guid: 30fcc585daa8dc446b90a3c00b84d7ec,
         type: 2}
@@ -2725,7 +2725,7 @@ Prefab:
     - target: {fileID: 224000011132021240, guid: 30fcc585daa8dc446b90a3c00b84d7ec,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 724
+      value: 722
       objectReference: {fileID: 0}
     - target: {fileID: 224000011132021240, guid: 30fcc585daa8dc446b90a3c00b84d7ec,
         type: 2}
@@ -2755,7 +2755,7 @@ Prefab:
     - target: {fileID: 224000011380684110, guid: 30fcc585daa8dc446b90a3c00b84d7ec,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 857
+      value: 855
       objectReference: {fileID: 0}
     - target: {fileID: 224000011380684110, guid: 30fcc585daa8dc446b90a3c00b84d7ec,
         type: 2}

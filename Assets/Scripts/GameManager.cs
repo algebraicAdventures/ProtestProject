@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
     public Text fadingText;
     public Color fadeTextFullColor;
 
+    public float timeDayScreenShows = 2.0f;
+
     public float maxFieldValue = 5.0f;
     public int twitterReadWaitTime = 3;
     public AudioSource desktopPhone;
@@ -255,22 +257,16 @@ public class GameManager : MonoBehaviour {
             else if (currEvent == 8)
             {
                 //fade screen to black
-                print("attempt to fade to black");
-                //fadeScreen.CrossFadeAlpha(1.0f, fadeTime, false);
-                //fadeScreen.CrossFadeColor(Color.black, 2.0f, false);
-                //fadeScreen.Cross
                 fadingCanvas.gameObject.SetActive(true);
                 fadingText.text = "DAY 2";
 
                 isFadingOut = true;
                 currEvent++;
-                //after fade, call the next event
-                //nextEvent();
             }
             else if(currEvent == 9)
             {
                 //wait a bit before going to the next thing
-                Invoke("nextEvent", twitterReadWaitTime);
+                Invoke("nextEvent", timeDayScreenShows);
                 currEvent++;
 
                 
@@ -435,19 +431,30 @@ public class GameManager : MonoBehaviour {
                 }
                 currEvent++;
             }
+            else if (currEvent == 9)
+            {
+                //fade screen to black
+                fadingCanvas.gameObject.SetActive(true);
+                fadingText.text = "DAY 3";
+
+                isFadingOut = true;
+                currEvent++;
+            }
+            else if (currEvent == 10)
+            {
+                //wait a bit before going to the next thing
+                Invoke("nextEvent", timeDayScreenShows);
+                currEvent++;
+
+
+            }
             else
             {
-                //end day 2
+                //the actual end of the day
                 currDay++;
                 currEvent = 0;
-
-                //fade out then in then call nextEvent
-
-                //fade screen to black
-                print("pretend that I faded to black");
-                //after fade, call the next event
                 nextEvent();
-            } 
+            }
         }
         /********
          * DAY 3
@@ -625,17 +632,27 @@ public class GameManager : MonoBehaviour {
 
                 currEvent++;
             }
+            else if (currEvent == 11)
+            {
+                //fade screen to black
+                fadingCanvas.gameObject.SetActive(true);
+                fadingText.text = "DAY 4";
+
+                isFadingOut = true;
+                currEvent++;
+            }
+            else if (currEvent == 12)
+            {
+                //wait a bit before going to the next thing
+                Invoke("nextEvent", timeDayScreenShows);
+                currEvent++;
+
+            }
             else
             {
-                //end of day 3
+                //the actual end of the day
                 currDay++;
                 currEvent = 0;
-
-                //fade out then in then call nextEvent
-
-                //fade screen to black
-                print("pretend that I faded to black");
-                //after fade, call the next event
                 nextEvent();
             }
         }
@@ -808,17 +825,28 @@ public class GameManager : MonoBehaviour {
                 //uiManager.addDialogue("Daughter", "Well, try harder!");
                 uiManager.addBranchingText("Daughter", "Well, try harder!", "How can you even say that!");
             }
+            else if (currEvent == 10)
+            {
+                //fade screen to black
+                fadingCanvas.gameObject.SetActive(true);
+                fadingText.text = "DAY 5";
+
+                isFadingOut = true;
+                currEvent++;
+            }
+            else if (currEvent == 11)
+            {
+                //wait a bit before going to the next thing
+                Invoke("nextEvent", timeDayScreenShows);
+                currEvent++;
+
+
+            }
             else
             {
-                //end day 4
+                //the actual end of the day
                 currDay++;
                 currEvent = 0;
-
-                //fade out then in then call nextEvent
-
-                //fade screen to black
-                print("pretend that I faded to black");
-                //after fade, call the next event
                 nextEvent();
             }
         }
@@ -987,17 +1015,28 @@ public class GameManager : MonoBehaviour {
 
                 currEvent++;
             }
+            else if (currEvent == 11)
+            {
+                //fade screen to black
+                fadingCanvas.gameObject.SetActive(true);
+                fadingText.text = "DAY 6";
+
+                isFadingOut = true;
+                currEvent++;
+            }
+            else if (currEvent == 12)
+            {
+                //wait a bit before going to the next thing
+                Invoke("nextEvent", timeDayScreenShows);
+                currEvent++;
+
+
+            }
             else
             {
-                //end day 5
+                //the actual end of the day
                 currDay++;
                 currEvent = 0;
-
-                //fade out then in then call nextEvent
-
-                //fade screen to black
-                print("pretend that I faded to black");
-                //after fade, call the next event
                 nextEvent();
             }
         }
@@ -1139,13 +1178,14 @@ public class GameManager : MonoBehaviour {
             }
             else
             {
-                //the end of the game
-                print("game is OVER");
+                //fade screen to black
+                fadingCanvas.gameObject.SetActive(true);
+                fadingText.text = "FIN, your score was " + situationValue;
 
-                print("fade to black");
-
-                print("your score was " + situationValue);
+                isFadingOut = true;
+                currEvent++;
             }
+            
         }
         
     }
