@@ -1335,7 +1335,7 @@ Prefab:
     - target: {fileID: 223000013049643054, guid: 73355c79814286249b70df0a1f5811bb,
         type: 2}
       propertyPath: m_PixelPerfect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224000013721391382, guid: 73355c79814286249b70df0a1f5811bb,
         type: 2}
@@ -1346,6 +1346,16 @@ Prefab:
         type: 2}
       propertyPath: m_SizeDelta.y
       value: 1199
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010173442456, guid: 73355c79814286249b70df0a1f5811bb,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 459
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010173442456, guid: 73355c79814286249b70df0a1f5811bb,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 370
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 73355c79814286249b70df0a1f5811bb, type: 2}
