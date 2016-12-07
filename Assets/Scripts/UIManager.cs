@@ -69,7 +69,7 @@ public class UIManager : MonoBehaviour {
 
     public void addDecision(string speaker, string message, string optA, string optB)
     {
-        mDialogue.addDecision(speaker, message, optA, optB);
+        mDialogue.addDecision(speaker, message, optA, optB, true, 0.25f);
         dialogueCanvas.gameObject.SetActive(true);
     }
 

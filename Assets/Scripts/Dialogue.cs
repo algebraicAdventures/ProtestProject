@@ -12,6 +12,8 @@ public class Dialogue : MonoBehaviour {
         public bool isDecision;
         public string optionA;
         public string optionB;
+        public bool optionAPlus;
+        public float optionDelta;
 
         public DialogueMessage(string msg, string name_)
         {
@@ -21,13 +23,15 @@ public class Dialogue : MonoBehaviour {
             optionA = "";
             optionB = "";
         }
-        public DialogueMessage(string msg, string name_, string optionA_, string optionB_)
+        public DialogueMessage(string msg, string name_, string optionA_, string optionB_, bool isAGood, float decisionWeight)
         {
             this.message = msg;
             this.name = name_;
             this.isDecision = true;
             this.optionA = optionA_;
             this.optionB = optionB_;
+            this.optionAPlus = isAGood;
+            this.optionDelta = decisionWeight;
         }
     }
 
@@ -39,10 +43,11 @@ public class Dialogue : MonoBehaviour {
     public Text buttonAText;
     public Text buttonBText;
     public GameManager gameManager;
+    public string playerName;
 
-    public Button buttonA, buttonB;
+    public Button buttonA, buttonB, nextButton;
 
-    public void addDecision(string speaker, string msg, string OptA, string OptB)
+    public void addDecision(string speaker, string msg, string OptA, string OptB, bool isAGood, float amountToChange)
     {
         if (messages_.Count == 0)
         {
@@ -58,9 +63,12 @@ public class Dialogue : MonoBehaviour {
             //activate buttons
             buttonA.gameObject.SetActive(true);
             buttonB.gameObject.SetActive(true);
+
+            //deactive next
+            nextButton.gameObject.SetActive(false);
         }
 
-        messages_.Add(new DialogueMessage(msg, speaker, OptA, OptB));
+        messages_.Add(new DialogueMessage(msg, speaker, OptA, OptB, isAGood, amountToChange));
         
     }
 
@@ -75,11 +83,60 @@ public class Dialogue : MonoBehaviour {
             //deactivate buttons
             buttonA.gameObject.SetActive(false);
             buttonB.gameObject.SetActive(false);
+
+            //active next
+            nextButton.gameObject.SetActive(true);
         }
 
         messages_.Add(new DialogueMessage(msg, speaker));
         
-    } 
+    }
+
+    public void optionPicked(bool isA)
+    {
+        if (isA)
+        {
+            //set up dialogue to use the A stuff
+            mText.text = messages_[0].optionA;
+            mName.text = playerName;
+            //player picked option A
+            if (messages_[0].optionAPlus)
+            {
+                //option A was the good one
+                gameManager.changeSituationValue(messages_[0].optionDelta);
+            }else
+            {
+                //option A was the bad one
+                gameManager.changeSituationValue(0 - messages_[0].optionDelta);
+            }
+        }
+        else
+        {
+            //player picked option B
+            mText.text = messages_[0].optionB;
+            mName.text = playerName;
+            //player picked option A
+            if (messages_[0].optionAPlus)
+            {
+                //player picked the bad one
+                gameManager.changeSituationValue(0 - messages_[0].optionDelta);
+            }
+            else
+            {
+                //player picked the good one
+                gameManager.changeSituationValue(messages_[0].optionDelta);
+            }
+        }
+
+        //update which buttons are active
+        //deactivate buttons
+        buttonA.gameObject.SetActive(false);
+        buttonB.gameObject.SetActive(false);
+
+        //active next
+        nextButton.gameObject.SetActive(true);
+
+    }
 
     public void nextMessage()
     {
@@ -89,7 +146,7 @@ public class Dialogue : MonoBehaviour {
             mName.text = messages_[1].name;
 
             //see if it is a decision
-            if (messages_[0].isDecision)
+            if (messages_[1].isDecision)
             {
                 //is decision, activate and set up buttons
                 buttonAText.text = messages_[1].optionA;
@@ -99,7 +156,8 @@ public class Dialogue : MonoBehaviour {
                 buttonA.gameObject.SetActive(true);
                 buttonB.gameObject.SetActive(true);
 
-                //deactivate next button
+                //deactive next
+                nextButton.gameObject.SetActive(false);
             }
             else
             {
@@ -107,7 +165,8 @@ public class Dialogue : MonoBehaviour {
                 buttonA.gameObject.SetActive(false);
                 buttonB.gameObject.SetActive(false);
 
-                //reactivate next button
+                //active next
+                nextButton.gameObject.SetActive(true);
             }
 
             messages_.RemoveAt(0);
