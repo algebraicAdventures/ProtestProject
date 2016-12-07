@@ -5,8 +5,7 @@ Default events cause changes in situation value
 Officer assignment has mechanical effect on game (change situation value)
 	talk to carol about what it should be
 
-	**desktop loop
-	**desktop icons work
+	**text message way too bad sized
 
 Assets needed:
 Officer assignment UI stuff

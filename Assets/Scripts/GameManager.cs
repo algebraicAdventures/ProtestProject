@@ -136,9 +136,8 @@ public class GameManager : MonoBehaviour {
                     // BKPD Chief Declares Protest Peaceful
                     uiManager.addDialogue("Officer", "The protest shows no signs of aggression after the shooting. The two matters seem unrelated but further investigations are on their way. ");
                     //uiManager.addDialogue("Officer", "With your permission, I will write off the protest as peaceful.");
-                    uiManager.addDecision("Officer", "With  your permission, I will write off the protest as peaceful.", "Proceed", "Let's hold off", 0.05f, 0.15f);
-
-                    uiManager.addDialogue(PlayerName, "Proceed.");
+                    uiManager.addDecision("Officer", "With  your permission, I will write off the protest as peaceful.", "Proceed.", "Let's hold off", 0.05f, 0.15f);
+                    
 
                 }
                 else
@@ -339,25 +338,29 @@ public class GameManager : MonoBehaviour {
             {
                 //make cell phone ring
                 print("cell phone ring sound day 3");
+                cellRing.Play();
                 cellOn = true;
                 currEvent++;
             } else if(currEvent == 2)
             {
+                print("currevent == 2");
                 //Son Calls from Cell Phone
                 uiManager.addDialogue("Son", "Hey dad? I saw the news a few days ago and... that guy that was shot... that was really close to where we live.");
                 uiManager.addDialogue("Son", "I-I'm scared. Dad, guns are dangerous aren't they? The police have other weapons right? Why do they need guns? They just... they just end things too quickly--without giving the other person a chance to explain themselves.");
                 //uiManager.addDialogue("Son", "I don't think they're the answer...");
                 uiManager.addDecision("Son", "I don't think they're the answer...", "You've never felt the power of holding a gun.", " Don't worry son, I'm taking care of it. Say hi to your mother for me. ", +1, -0.1f);
-
+                currEvent++;
                 //uiManager.addDialogue(PlayerName, "Don't worry son, I'm taking care of it. Say hi to your mother for me.");
 
             }else if(currEvent == 3)
             {
+                print("currEvent == 3");
                 //wait time
                 Invoke("nextEvent", twitterReadWaitTime);
                 currEvent++;
             } else if(currEvent == 4)
             {
+                print("curEvent == 4");
                 if(situationValue < 3 && situationValue > 1)
                 {
                     //Immigrants Join Peaceful Protest
@@ -369,9 +372,11 @@ public class GameManager : MonoBehaviour {
                 else
                 {
                     currEvent += 2;
+                    nextEvent();
                 }
             } else if(currEvent == 5)
             {
+                print("curEvent == 5");
                 //Immigrants Join Peaceful Protest
                 uiManager.addDialogue("Officer", "Chief. Following earlier events, there have been an increase of immigrants joining the protest. They're chanting 'We are human too', 'Borders are lines drawn by racists' and etc. They don't appear aggressive but we are made to suspect that some of these people are illegal immigrants.");
                 uiManager.addDialogue("Officer", "With your permission, we will ask them for papers.");
@@ -383,6 +388,7 @@ public class GameManager : MonoBehaviour {
                 currEvent++;
             } else if(currEvent == 6)
             {
+                print("currEvent == 6");
                 //allocate officers
                 uiManager.setOfficerAssignActive(true);
                 currEvent++;
@@ -439,7 +445,7 @@ public class GameManager : MonoBehaviour {
                 {
                     //Son Worries OR Son Thanks
                     //make cell phone call
-                    print("bing new cell ring");
+                    cellRing.Play();
                     cellOn = true;
                     currEvent++;
                 }
@@ -532,13 +538,16 @@ public class GameManager : MonoBehaviour {
                 cellText.Play();
                 uiManager.updateCellImage(Texts[0]);
                 print("daughter text");
+                currEvent++;
             } else if (currEvent == 2)
             {
+                print("event 2 day 4");
                 //give player wait time
                 Invoke("nextEvent", twitterReadWaitTime);
                 currEvent++;
             } else if (currEvent == 3)
             {
+                print("event 3 day 4");
                 if(situationValue < 4 && situationValue > 2)
                 {
                     //make phone ring for Cop Stuns Pregnant Woman With Taser
@@ -549,17 +558,24 @@ public class GameManager : MonoBehaviour {
                 }
                 else
                 {
+                    print("double bubble day 4");
                     currEvent += 2;
+                    print("day 4 event is goign to be " + currEvent);
+                    nextEvent();
                 }
             } else if(currEvent == 4)
             {
+                print("event 4 day 2");
                 //Cop Stuns Pregnant Woman With Taser
                 uiManager.addDialogue("Officer", "Situation report, Chief. The protest continues to grow uneasy and louder. Officers on site are on standby, but one officer was insulted and he tases a pregnant woman. She was unconscious for a few seconds but she has calmed down since then.");
                 uiManager.addDialogue("Officer", "After that, there were no further disruptions.");
 
                 uiManager.addDialogue(PlayerName, "I'm glad you guys have the situation under control.");
+
+                currEvent++;
             } else if(currEvent == 5)
             {
+                print("allocate officers");
                 //allocate officers
                 uiManager.setOfficerAssignActive(true);
                 currEvent++;
@@ -727,6 +743,7 @@ public class GameManager : MonoBehaviour {
                 }else
                 {
                     currEvent += 2;
+                    nextEvent();
                 }
             } else if(currEvent == 5)
             {
@@ -946,6 +963,7 @@ public class GameManager : MonoBehaviour {
                 else
                 {
                     currEvent += 2;
+                    nextEvent();
                 }
             } else if(currEvent == 7)
             {
@@ -1014,8 +1032,10 @@ public class GameManager : MonoBehaviour {
     public void setCellInactive()
     {
         uiManager.setCellphoneActive(false);
+        print("setting cell inactive");
         if (textOn)
         {
+            print("going to next event");
             textOn = false;
             nextEvent();
         }
