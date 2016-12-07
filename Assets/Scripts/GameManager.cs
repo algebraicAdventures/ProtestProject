@@ -76,15 +76,18 @@ public class GameManager : MonoBehaviour {
             else if (currEvent == 1)
             {
                 //testing, please remove
-                uiManager.addDecision("me", "hello decision", "yes", "no");
+                //uiManager.addDecision("me", "hello decision", "yes", "no");
                 //send the initial politican phone call
                 uiManager.addDialogue("Politician", "Good morning Chief, a small group of young adults gathered this morning at Berkeley City Hall. They were holding up posters with 'Am I next?', 'Will You Shoot Me?' and others. They continuously chanted 'Hands up, don't shoot' which garnered attention and attracted crowds of people.");
                 uiManager.addDialogue("Politician", "Currently, the protest appears peaceful but I can never predict these situations. ");
-                uiManager.addDialogue("Politician", "Please send some men over.");
+                //uiManager.addDialogue("Politician", "Please send some men over.");
+                uiManager.addDecision("Politician", "Please send some men over.", "There's no need to send men over.", "They're on their way.", 0.5f, -0.5f);
 
-                uiManager.addDialogue(PlayerName, "They're on their way.");
 
-                uiManager.addDialogue("Politician", "Thank you.");
+                //uiManager.addDialogue(PlayerName, "They're on their way.");
+
+                //uiManager.addDialogue("Politician", "Thank you.");
+                uiManager.addBranchingText("Politician", "If you think so, chief", "Thank you");
                 currEvent++;
 
             }
@@ -103,11 +106,13 @@ public class GameManager : MonoBehaviour {
             {
                 uiManager.addDialogue("Officer", "Emergency chief! We have a 444 involving one of our own men. He was down at Berkeley City Hall and he took things into his own hands. He reported that the teenager fled the McDonald's at the sight of him. He held up his gun and chased him.");
                 uiManager.addDialogue("Officer", "Unfortunately, he killed the teenager. The teenager fought back but I don't think...");
-                uiManager.addDialogue("Officer", "I don't think shooting him was necessary...");
+                //uiManager.addDialogue("Officer", "I don't think shooting him was necessary...");
+                uiManager.addDecision("Officer", "I don't think shooting him was necessary...", "It was the only thing he could do in that situation.", "Please remain alert officer.", 0.5f, -0.05f);
 
-                uiManager.addDialogue(PlayerName, "Please remain alert officer.");
+                //uiManager.addDialogue(PlayerName, "Please remain alert officer.");
 
-                uiManager.addDialogue("Officer", "Yes sir!");
+                //uiManager.addDialogue("Officer", "Yes sir!");
+                uiManager.addBranchingText("Officer", "I... I guess", "Yes sir!");
                 currEvent++;
             } else if(currEvent == 5)
             {
@@ -128,7 +133,8 @@ public class GameManager : MonoBehaviour {
                     //more officers on patrol
                     // BKPD Chief Declares Protest Peaceful
                     uiManager.addDialogue("Officer", "The protest shows no signs of aggression after the shooting. The two matters seem unrelated but further investigations are on their way. ");
-                    uiManager.addDialogue("Officer", "With your permission, I will write off the protest as peaceful.");
+                    //uiManager.addDialogue("Officer", "With your permission, I will write off the protest as peaceful.");
+                    uiManager.addDecision("Officer", "With  your permission, I will write off the protest as peaceful.", "Proceed", "Let's hold off", 0.05f, 0.15f);
 
                     uiManager.addDialogue(PlayerName, "Proceed.");
 
@@ -139,9 +145,10 @@ public class GameManager : MonoBehaviour {
                     //Police Union Threatens Protesters
 
                     uiManager.addDialogue("Officer", "With our current evidence, we found a connection between the shooting and the protest at City Hall. Protesters are threatening our officers on site, none of whom are related to the shooting. We're afraid this might lead to an increase in aggression.");
-                    uiManager.addDialogue("Officer", "What should we do, Chief?");
+                    //uiManager.addDialogue("Officer", "What should we do, Chief?");
+                    uiManager.addDecision("Officer", "What should we do Chief?", "Our priority is to secure the safety of the people.", "Do what you need to keep our people safe", -0.4f, 0.5f);
 
-                    uiManager.addDialogue(PlayerName, "If we see any suspicious behaviors, our priority is to secure the safety of the people. ");
+                    //uiManager.addDialogue(PlayerName, "If we see any suspicious behaviors, our priority is to secure the safety of the people. ");
 
                     uiManager.addDialogue("Officer", "Noted.");
 
@@ -190,9 +197,11 @@ public class GameManager : MonoBehaviour {
             {
                 //Officer Reports Increasing Unrest at Formerly Declared 'Peaceful' Protest
                 uiManager.addDialogue("Officer", "How's your morning going, Chief?");
-                uiManager.addDialogue("Officer", "Well this morning, more people joined in on the protest and chants grow louder. The politician in Berkeley City Hall, who called yesterday, reports that the protest is a 'huge disruption to work'.");
+                //uiManager.addDialogue("Officer", "Well this morning, more people joined in on the protest and chants grow louder. The politician in Berkeley City Hall, who called yesterday, reports that the protest is a 'huge disruption to work'.");
+                uiManager.addDecision("Officer", "Well this morning, more people joined in on the protest and chants grow louder. The politician in Berkeley City Hall, who called yesterday, reports that the protest is a 'huge disruption to work'.", "Tell him to wear earplugs", "I'll see what I can do", -0.05f, +0.05f);
 
-                uiManager.addDialogue(PlayerName, "I'll see what I can do. ");
+                //uiManager.addDialogue(PlayerName, "I'll see what I can do. ");
+                uiManager.addBranchingText("Officer", "Sir...", "Thank you so much.");
 
                 currEvent++;
             } else if(currEvent == 3)
@@ -252,9 +261,9 @@ public class GameManager : MonoBehaviour {
                     uiManager.addDialogue(PlayerName, "For misconduct and acting on your own, I am releasing you.");
                 }else
                 {
-                    uiManager.addDialogue("Officer", "Hey Chief. We're with the woman from Ferguson. New information is in, and it turns out she is pregnant. The groping was also caught on camera and she uses this evidence against the officer, but that doesn't stop the FPDE officer from verbally harassing her.");
-
-                    uiManager.addDialogue(PlayerName, "Don't let your guard down.");
+                    //uiManager.addDialogue("Officer", "Hey Chief. We're with the woman from Ferguson. New information is in, and it turns out she is pregnant. The groping was also caught on camera and she uses this evidence against the officer, but that doesn't stop the FPDE officer from verbally harassing her.");
+                    uiManager.addDecision("Officer", "Hey Chief. We're with the woman from Ferguson. New information is in, and it turns out she is pregnant. The groping was also caught on camera and she uses this evidence against the officer, but that doesn't stop the FPDE officer from verbally harassing her.", "Don't let your guard down", "I would've fired him if I was his chief", -0.05f, +0.7f);
+                    //uiManager.addDialogue(PlayerName, "Don't let your guard down.");
 
                 }
 
@@ -335,9 +344,10 @@ public class GameManager : MonoBehaviour {
                 //Son Calls from Cell Phone
                 uiManager.addDialogue("Son", "Hey dad? I saw the news a few days ago and... that guy that was shot... that was really close to where we live.");
                 uiManager.addDialogue("Son", "I-I'm scared. Dad, guns are dangerous aren't they? The police have other weapons right? Why do they need guns? They just... they just end things too quickly--without giving the other person a chance to explain themselves.");
-                uiManager.addDialogue("Son", "I don't think they're the answer...");
+                //uiManager.addDialogue("Son", "I don't think they're the answer...");
+                uiManager.addDecision("Son", "I don't think they're the answer...", "You've never felt the power of holding a gun.", " Don't worry son, I'm taking care of it. Say hi to your mother for me. ", +1, -0.1f);
 
-                uiManager.addDialogue(PlayerName, "Don't worry son, I'm taking care of it. Say hi to your mother for me.");
+                //uiManager.addDialogue(PlayerName, "Don't worry son, I'm taking care of it. Say hi to your mother for me.");
 
             }else if(currEvent == 3)
             {
@@ -350,7 +360,6 @@ public class GameManager : MonoBehaviour {
                 {
                     //Immigrants Join Peaceful Protest
                     //make desk phone
-                    print("desk phone ring day 3 optional thing");
                     phoneOn = true;
                     desktopPhone.Play();
                     currEvent++;
@@ -621,11 +630,13 @@ public class GameManager : MonoBehaviour {
                 //Daughter scolds
                 uiManager.addDialogue("Daughter", "Dad! What are you doing?? You're in charge of the police officers right? These guys are supposed to be keeping us safe!");
                 uiManager.addDialogue("Daughter", "My friend knew that woman and now her family is getting harassed every time they leave the house.");
-                uiManager.addDialogue("Daughter", "How could you do this?");
+                //uiManager.addDialogue("Daughter", "How could you do this?");
+                uiManager.addDecision("Daughter", "How could you do this?", "I'm trying to doing what's best for everyone", "At least it's not us", -0.5f, +1.0f);
 
-                uiManager.addDialogue(PlayerName, "I'm doing what's best for everyone.");
+                //uiManager.addDialogue(PlayerName, "I'm doing what's best for everyone.");
 
-                uiManager.addDialogue("Daughter", "Well, try harder!");
+                //uiManager.addDialogue("Daughter", "Well, try harder!");
+                uiManager.addBranchingText("Daughter", "Well, try harder!", "How can you even say that!");
             }
             else
             {
@@ -681,7 +692,11 @@ public class GameManager : MonoBehaviour {
                 //Officer call from desk phone
                 uiManager.addDialogue("Officer", "Hey Chief. How's it going? Things are starting to look pretty busy around here.");
                 uiManager.addDialogue("Officer", "Aside from Ferguson, Berkeley is getting a lot more visitors--press people, criminals, investigators, you name it.");
-                uiManager.addDialogue("Officer", "You're going to have to make a lot of tough decisions around here. But the guys and I on the force are always on our guards.");
+                //uiManager.addDialogue("Officer", "You're going to have to make a lot of tough decisions around here. But the guys and I on the force are always on our guards.");
+
+                uiManager.addDecision("Officer", "You're going to have to make a lot of tough decisions around here. But the guys and I on the force are always on our guards.", "Thank you for trusting me.", "If things get tough, I'll just flip a coin.", -0.05f, 0.8f);
+
+                uiManager.addBranchingText("Officer", "Of course sir", "Chief, I don't think that's a good idea.");
 
                 currEvent++;
             } else if(currEvent == 3)
@@ -707,6 +722,8 @@ public class GameManager : MonoBehaviour {
             {
                 //Peaceful Protest Turns Violent As protesters Are Seen With Weapons
                 uiManager.addDialogue("Officer", "Hello Chief. This morning, formerly unarmed protesters arrive on site with pocket knives and switchblades to protect themselves. However, because of an increase in weapons, there are fewer protesters than usual. Officers are on standby and it doesn't appear as if the protesters are actively looking to harm anyone.");
+
+                uiManager.addDialogue(PlayerName, "Keep your eyes out");
                 currEvent++;
             } else if(currEvent == 6)
             {
@@ -732,7 +749,7 @@ public class GameManager : MonoBehaviour {
                 {
                     //Teenager's Family Questions Silence
                     //start call
-                    print("teen family sad call start");
+                    //print("teen family sad call start");
                     phoneOn = true;
                     desktopPhone.Play();
                     currEvent++;
@@ -751,9 +768,8 @@ public class GameManager : MonoBehaviour {
             {
                 //Teenager's Family Questions Silence
                 uiManager.addDialogue("Officer", "Hello? The family of the teenager from this morning wants us to continue the investigation on the death of their son.");
-                uiManager.addDialogue("Officer", "They are claiming that the case was dismissed too early and requests that we continue until we find definitive proof and ask that we at least give them the name of the officer who shot him.");
-
-                uiManager.addDialogue(PlayerName, "Please help them the best of your ability.");
+                //uiManager.addDialogue("Officer", "They are claiming that the case was dismissed too early and requests that we continue until we find definitive proof and ask that we at least give them the name of the officer who shot him.");
+                uiManager.addDecision("Officer", "They are claiming that the case was dismissed too early and requests that we continue until we find definitive proof and ask that we at least give them the name of the officer who shot him.", "I'll consider it", "I'll look into it", -0.05f, 0.05f);
 
                 currEvent++;
             } else if(currEvent == 9)
@@ -861,11 +877,13 @@ public class GameManager : MonoBehaviour {
                 //Wife calls from cell phone
                 uiManager.addDialogue("Wife", "Honey, you looked upset this morning. I was busy with lunch so I couldn't ask but I hope things are alright?");
                 uiManager.addDialogue("Wife", "I know with the protest down at City Hall and the crimes around the city, you are very stressed. But the city needs you now more than ever.");
-                uiManager.addDialogue("Wife", "Take care of yourself before you take on the fate of thousands of people ok? ");
+                //uiManager.addDialogue("Wife", "Take care of yourself before you take on the fate of thousands of people ok? ");
+                uiManager.addDecision("Wife", "Take care of yourself before you take on the fate of thousands of people ok?", "I'll be fine, thanks honey", "I just need some Advil", 0.05f, -0.05f);
 
-                uiManager.addDialogue(PlayerName, "I'll be fine, thanks honey.");
+                //uiManager.addDialogue(PlayerName, "I'll be fine, thanks honey.");
 
-                uiManager.addDialogue("Wife", "I love you, bye. ");
+                //uiManager.addDialogue("Wife", "I love you, bye. ");
+                uiManager.addBranchingText("Wife", "I love you, bye.", "Take a box with you next time");
 
                 currEvent++;
             } else if(currEvent == 3)
@@ -931,11 +949,13 @@ public class GameManager : MonoBehaviour {
                     //wife worries
                     uiManager.addDialogue("Wife", "Hey hon, do you need a day off?");
                     uiManager.addDialogue("Wife", "It might be impossible but you need a clear mind to make sound decisions.");
-                    uiManager.addDialogue("Wife", "I'll always be cheering for you dear.");
+                    //uiManager.addDialogue("Wife", "I'll always be cheering for you dear.");
+                    uiManager.addDecision("Wife", "I'll always be cheering for you dear.", "I think I could us a vacation or two", "I can't take a day off, but I'm trying my best.", -0.5f, 0.5f);
 
-                    uiManager.addDialogue(PlayerName, "I can't take a day off, but I'm trying my best.");
+                    //uiManager.addDialogue(PlayerName, "I can't take a day off, but I'm trying my best.");
 
-                    uiManager.addDialogue("Wife", "I hope so.");
+                    //uiManager.addDialogue("Wife", "I hope so.");
+                    uiManager.addBranchingText("Wife", "The guys on the force might not appreciate that.", "I hope so.");
                 }
                 currEvent++;
             }
@@ -990,6 +1010,7 @@ public class GameManager : MonoBehaviour {
     
     public void setNewspaperInactive()
     {
+        print("newspaper inactive");
         uiManager.setNewspaperActive(false);
         if (newsOn)
         {

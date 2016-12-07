@@ -66,10 +66,13 @@ public class UIManager : MonoBehaviour {
         mDialogue.addMessage(speaker, message);
         dialogueCanvas.gameObject.SetActive(true);
     }
-
-    public void addDecision(string speaker, string message, string optA, string optB)
+    public void addBranchingText(string speaker, string messageA, string messageB)
     {
-        mDialogue.addDecision(speaker, message, optA, optB, true, 0.25f);
+        mDialogue.addBranchingDialogue(speaker, messageA, messageB);
+    }
+    public void addDecision(string speaker, string message, string optA, string optB, float aChange, float bChange)
+    {
+        mDialogue.addDecision(speaker, message, optA, optB, aChange, bChange);
         dialogueCanvas.gameObject.SetActive(true);
     }
 

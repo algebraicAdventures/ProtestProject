@@ -13,8 +13,7 @@ public class ReactToClick : MonoBehaviour {
 
     void OnMouseDown()
     {
-        print("clicked it xD");
-        /*
+        
         switch (mType)
         {
             case ObjectType.Cell:
@@ -31,7 +30,7 @@ public class ReactToClick : MonoBehaviour {
             case ObjectType.Newspaper:
                 uiManager.activateNewspaper();
                 break;
-        }*/
+        }
     }
 
 

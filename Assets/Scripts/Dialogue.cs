@@ -12,8 +12,8 @@ public class Dialogue : MonoBehaviour {
         public bool isDecision;
         public string optionA;
         public string optionB;
-        public bool optionAPlus;
-        public float optionDelta;
+        public float aChange;
+        public float bChange;
 
         public DialogueMessage(string msg, string name_)
         {
@@ -23,15 +23,22 @@ public class Dialogue : MonoBehaviour {
             optionA = "";
             optionB = "";
         }
-        public DialogueMessage(string msg, string name_, string optionA_, string optionB_, bool isAGood, float decisionWeight)
+        public DialogueMessage(string msg, string name_, string optionA_, string optionB_, float aChange, float bChange)
         {
             this.message = msg;
             this.name = name_;
             this.isDecision = true;
             this.optionA = optionA_;
             this.optionB = optionB_;
-            this.optionAPlus = isAGood;
-            this.optionDelta = decisionWeight;
+            this.aChange = aChange;
+            this.bChange = bChange;
+        }
+        public DialogueMessage(string name, string aMsg, string bMsg)
+        {
+            this.name = name;
+            this.message = "";
+            this.optionA = aMsg;
+            this.optionB = bMsg;
         }
     }
 
@@ -45,9 +52,11 @@ public class Dialogue : MonoBehaviour {
     public GameManager gameManager;
     public string playerName;
 
+    bool isA = true;
+
     public Button buttonA, buttonB, nextButton;
 
-    public void addDecision(string speaker, string msg, string OptA, string OptB, bool isAGood, float amountToChange)
+    public void addDecision(string speaker, string msg, string OptA, string OptB, float aChange, float bChange)
     {
         if (messages_.Count == 0)
         {
@@ -68,8 +77,15 @@ public class Dialogue : MonoBehaviour {
             nextButton.gameObject.SetActive(false);
         }
 
-        messages_.Add(new DialogueMessage(msg, speaker, OptA, OptB, isAGood, amountToChange));
+        messages_.Add(new DialogueMessage(msg, speaker, OptA, OptB, aChange, bChange));
         
+    }
+
+    public void addBranchingDialogue(string name, string aText, string bText)
+    {
+        //don't allow it to be the first thing
+        messages_.Add(new DialogueMessage(name, aText, bText));
+
     }
 
     public void addMessage(string speaker, string msg)
@@ -92,23 +108,16 @@ public class Dialogue : MonoBehaviour {
         
     }
 
-    public void optionPicked(bool isA)
+    public void optionPicked(bool optionA)
     {
-        if (isA)
+        if (optionA)
         {
             //set up dialogue to use the A stuff
             mText.text = messages_[0].optionA;
             mName.text = playerName;
-            //player picked option A
-            if (messages_[0].optionAPlus)
-            {
-                //option A was the good one
-                gameManager.changeSituationValue(messages_[0].optionDelta);
-            }else
-            {
-                //option A was the bad one
-                gameManager.changeSituationValue(0 - messages_[0].optionDelta);
-            }
+            //change by the A change amount
+            gameManager.changeSituationValue(messages_[0].aChange);
+            isA = true;
         }
         else
         {
@@ -116,16 +125,9 @@ public class Dialogue : MonoBehaviour {
             mText.text = messages_[0].optionB;
             mName.text = playerName;
             //player picked option A
-            if (messages_[0].optionAPlus)
-            {
-                //player picked the bad one
-                gameManager.changeSituationValue(0 - messages_[0].optionDelta);
-            }
-            else
-            {
-                //player picked the good one
-                gameManager.changeSituationValue(messages_[0].optionDelta);
-            }
+            gameManager.changeSituationValue(messages_[0].bChange);
+
+            isA = false;
         }
 
         //update which buttons are active
@@ -142,12 +144,14 @@ public class Dialogue : MonoBehaviour {
     {
         if (messages_.Count > 1)
         {
-            mText.text = messages_[1].message;
-            mName.text = messages_[1].name;
+            
 
             //see if it is a decision
             if (messages_[1].isDecision)
             {
+                mText.text = messages_[1].message;
+                mName.text = messages_[1].name;
+
                 //is decision, activate and set up buttons
                 buttonAText.text = messages_[1].optionA;
                 buttonBText.text = messages_[1].optionB;
@@ -161,6 +165,27 @@ public class Dialogue : MonoBehaviour {
             }
             else
             {
+                if(messages_[1].message == "")
+                {
+                    print("isA is " + isA);
+                    //it's branching
+                    if (isA)
+                    {
+                        mText.text = messages_[1].optionA;
+                        mName.text = messages_[1].name;
+                    }
+                    else
+                    {
+                        mText.text = messages_[1].optionB;
+                        mName.text = messages_[1].name;
+                    }
+                }
+                else
+                {
+                    mText.text = messages_[1].message;
+                    mName.text = messages_[1].name;
+                }
+                
                 //deactivate buttons
                 buttonA.gameObject.SetActive(false);
                 buttonB.gameObject.SetActive(false);

@@ -7,14 +7,7 @@ Officer assignment has mechanical effect on game (change situation value)
 	talk to carol about what it should be
 Player Choices
 	set up dialogue UI to handle that stuff
-Add in more decisions for the player to react to
-	this will require more code to make the UI for that appear and look not terrible
-	
-**dialogue buttons do things**
-	
-general unity stuff:	
-game is in the office we built
-	make a scene in unity with it
+
 
 Assets needed:
 Officer assignment UI stuff
@@ -27,5 +20,6 @@ Transitions from day to day
 	fade out or screen goes straight to black
 
 Names for officer, player, son, wife, mayor, politician, ??
-	
-add 7th officer, remove when fire event occurs????
+
+
+end of game screen
