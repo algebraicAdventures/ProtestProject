@@ -449,6 +449,7 @@ public class GameManager : MonoBehaviour {
                     //make the new text and have the story advance when player closes cell phone
                     uiManager.updateCellImage(Texts[3]);
                     textOn = true;
+                    cellText.Play();
                     currEvent += 2;
                 }
             } else if(currEvent == 10)
@@ -528,6 +529,7 @@ public class GameManager : MonoBehaviour {
             {
                 //recieve text from daughter
                 textOn = true;
+                cellText.Play();
                 uiManager.updateCellImage(Texts[0]);
                 print("daughter text");
             } else if (currEvent == 2)
@@ -613,12 +615,14 @@ public class GameManager : MonoBehaviour {
                 {
                     //Daughter Thanks
                     textOn = true;
+                    cellText.Play();
                     uiManager.updateCellImage(Texts[1]);
                     currEvent += 2;
                 } else if(situationValue < 4)
                 {
                     //Daughter Worries
                     textOn = true;
+                    cellText.Play();
                     uiManager.updateCellImage(Texts[2]);
                     currEvent += 2;
                 }
@@ -626,7 +630,7 @@ public class GameManager : MonoBehaviour {
                 {
                     //Daughter Scolds
                     //cell call
-                    print("end day 4 cell call xDDD");
+                    cellRing.Play();
                     cellOn = true;
                     currEvent++;
 
@@ -877,6 +881,7 @@ public class GameManager : MonoBehaviour {
                 //cell phone call
                 print("wife cell call start 6");
                 cellOn = true;
+                cellRing.Play();
                 currEvent++;
             } else if(currEvent == 2)
             {
@@ -935,6 +940,7 @@ public class GameManager : MonoBehaviour {
                     //cell phone call from wife
                     print("end of game wife call");
                     cellOn = true;
+                    cellRing.Play();
                     currEvent++;
                 }
                 else
@@ -985,6 +991,7 @@ public class GameManager : MonoBehaviour {
         if (cellOn)
         {
             cellOn = false;
+            cellRing.Stop();
             nextEvent();
         }
         else

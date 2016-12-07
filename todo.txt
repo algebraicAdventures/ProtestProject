@@ -4,9 +4,9 @@ Audio for cellphone works (text notification and call)
 Default events cause changes in situation value
 Officer assignment has mechanical effect on game (change situation value)
 	talk to carol about what it should be
-Player Choices
-	set up dialogue UI to handle that stuff
 
+	**desktop loop
+	**desktop icons work
 
 Assets needed:
 Officer assignment UI stuff
