@@ -127,7 +127,6 @@ public class GameManager : MonoBehaviour {
             if (currEvent == 0)
             {
                 //make the phone ring
-                print("phone is ring");
 
                 //ring.Play();
                 desktopPhone.Play();
@@ -278,7 +277,6 @@ public class GameManager : MonoBehaviour {
             {
                 //the actual end of the day
                 //end the day for real
-                print("end day 1");
                 currDay++;
                 currEvent = 0;
                 //fadeScreen.color = Color.clear;
@@ -298,16 +296,13 @@ public class GameManager : MonoBehaviour {
                 //set music to be correct
                 if (sitVal <= 1)
                 {
-                    print("audio 01");
                     bgmAudioSource.clip = bgm01;
                 } else if(sitVal <= 3)
                 {
-                    print("audio 23");
                     bgmAudioSource.clip = bgm23;
                 }
                 else
                 {
-                    print("audio 45");
                     bgmAudioSource.clip = bgm45;
                 }
                 bgmAudioSource.Play();
@@ -365,14 +360,12 @@ public class GameManager : MonoBehaviour {
                 {
                     //Officer Who Shot Teenager Fired by Police Chief
                     //make phone ring
-                    print("day 2 part 2 phone ring");
                     phoneOn = true;
                     desktopPhone.Play();
                     currEvent++;
                 } else if(numOffInSection2 > numOffInSection3 && numOffInSection2 > numOffInSection1)
                 {
                     //Pregnant Woman Harassed by BKPD Officer
-                    print("day 2 part 2 phone ring");
                     phoneOn = true;
                     desktopPhone.Play();
                     currEvent++;
@@ -416,7 +409,6 @@ public class GameManager : MonoBehaviour {
             {
 
                 //make phone ring again
-                print("fast fast day 2 phone ring");
                 phoneOn = true;
                 desktopPhone.Play();
                 currEvent++;
@@ -476,17 +468,14 @@ public class GameManager : MonoBehaviour {
                 //set music to be correct
                 if (sitVal <= 1)
                 {
-                    print("audio 01");
                     bgmAudioSource.clip = bgm01;
                 }
                 else if (sitVal <= 3)
                 {
-                    print("audio 23");
                     bgmAudioSource.clip = bgm23;
                 }
                 else
                 {
-                    print("audio 45");
                     bgmAudioSource.clip = bgm45;
                 }
                 bgmAudioSource.Play();
@@ -511,13 +500,11 @@ public class GameManager : MonoBehaviour {
             } else if(currEvent == 1)
             {
                 //make cell phone ring
-                print("cell phone ring sound day 3");
                 cellRing.Play();
                 cellOn = true;
                 currEvent++;
             } else if(currEvent == 2)
             {
-                print("currevent == 2");
                 //Son Calls from Cell Phone
                 uiManager.addDialogue("Son", "Hey dad? I saw the news a few days ago and... that guy that was shot... that was really close to where we live.");
                 uiManager.addDialogue("Son", "I-I'm scared. Dad, guns are dangerous aren't they? The police have other weapons right? Why do they need guns? They just... they just end things too quickly--without giving the other person a chance to explain themselves.");
@@ -528,14 +515,12 @@ public class GameManager : MonoBehaviour {
 
             }else if(currEvent == 3)
             {
-                print("currEvent == 3");
                 //wait time
                 Invoke("nextEvent", twitterReadWaitTime);
                 currEvent++;
             } else if(currEvent == 4)
             {
                 changeSituationValue(0.25f);
-                print("curEvent == 4");
                 if(situationValue < 3 && situationValue > 1)
                 {
                     //Immigrants Join Peaceful Protest
@@ -551,7 +536,6 @@ public class GameManager : MonoBehaviour {
                 }
             } else if(currEvent == 5)
             {
-                print("curEvent == 5");
                 //Immigrants Join Peaceful Protest
                 uiManager.addDialogue("Officer", "Chief. Following earlier events, there have been an increase of immigrants joining the protest. They're chanting 'We are human too', 'Borders are lines drawn by racists' and etc. They don't appear aggressive but we are made to suspect that some of these people are illegal immigrants.");
                 uiManager.addDialogue("Officer", "With your permission, we will ask them for papers.");
@@ -563,7 +547,6 @@ public class GameManager : MonoBehaviour {
                 currEvent++;
             } else if(currEvent == 6)
             {
-                print("currEvent == 6");
                 //allocate officers
                 uiManager.setZoneLabel(0, "Write Reports");
                 uiManager.setOfficerAssignActive(true);
@@ -591,7 +574,6 @@ public class GameManager : MonoBehaviour {
                 else
                 {
                     //Are Guns the Problem? OR Group of Illegal Immigrants Arrested at Protest Site
-                    print("asd desk phone ring");
                     phoneOn = true;
                     desktopPhone.Play();
                     currEvent++;
@@ -702,17 +684,14 @@ public class GameManager : MonoBehaviour {
                 //set music to be correct
                 if (sitVal <= 1)
                 {
-                    print("audio 01");
                     bgmAudioSource.clip = bgm01;
                 }
                 else if (sitVal <= 3)
                 {
-                    print("audio 23");
                     bgmAudioSource.clip = bgm23;
                 }
                 else
                 {
-                    print("audio 45");
                     bgmAudioSource.clip = bgm45;
                 }
                 bgmAudioSource.Play();
@@ -752,35 +731,28 @@ public class GameManager : MonoBehaviour {
                 textOn = true;
                 cellText.Play();
                 uiManager.updateCellImage(Texts[0]);
-                print("daughter text");
                 currEvent++;
             } else if (currEvent == 2)
             {
-                print("event 2 day 4");
                 //give player wait time
                 Invoke("nextEvent", twitterReadWaitTime);
                 currEvent++;
             } else if (currEvent == 3)
             {
-                print("event 3 day 4");
                 if(situationValue < 4 && situationValue > 2)
                 {
                     //make phone ring for Cop Stuns Pregnant Woman With Taser
-                    print("day 4 phone ring");
                     phoneOn = true;
                     desktopPhone.Play();
                     currEvent++;
                 }
                 else
                 {
-                    print("double bubble day 4");
                     currEvent += 2;
-                    print("day 4 event is goign to be " + currEvent);
                     nextEvent();
                 }
             } else if(currEvent == 4)
             {
-                print("event 4 day 2");
                 //Cop Stuns Pregnant Woman With Taser
                 uiManager.addDialogue("Officer", "Situation report, Chief. The protest continues to grow uneasy and louder. Officers on site are on standby, but one officer was insulted and he tases a pregnant woman. She was unconscious for a few seconds but she has calmed down since then.");
                 uiManager.addDialogue("Officer", "After that, there were no further disruptions.");
@@ -792,7 +764,6 @@ public class GameManager : MonoBehaviour {
                 currEvent++;
             } else if(currEvent == 5)
             {
-                print("allocate officers");
                 //allocate officers
                 uiManager.setOfficerAssignActive(true);
                 currEvent++;
@@ -819,7 +790,6 @@ public class GameManager : MonoBehaviour {
                 {
                     //Woman Punched By BKPD Officer Arrested Again
                     //phone call
-                    print("day 4 phone 2 ring");
                     phoneOn = true;
                     desktopPhone.Play();
                     currEvent++;
@@ -922,17 +892,14 @@ public class GameManager : MonoBehaviour {
                 //set music to be correct
                 if (sitVal <= 1)
                 {
-                    print("audio 01");
                     bgmAudioSource.clip = bgm01;
                 }
                 else if (sitVal <= 3)
                 {
-                    print("audio 23");
                     bgmAudioSource.clip = bgm23;
                 }
                 else
                 {
-                    print("audio 45");
                     bgmAudioSource.clip = bgm45;
                 }
                 bgmAudioSource.Play();
@@ -961,7 +928,6 @@ public class GameManager : MonoBehaviour {
             {
                 //Officer call from desk phone
                 //start call
-                print("start of D5 phone");
                 phoneOn = true;
                 desktopPhone.Play();
                 currEvent++;
@@ -989,7 +955,6 @@ public class GameManager : MonoBehaviour {
                 {
                     //Peaceful Protest Turns Violent As protesters Are Seen With Weapons
                     //phone call setup
-                    print("Phone ring for violence");
                     phoneOn = true;
                     desktopPhone.Play();
                     currEvent++;
@@ -1062,7 +1027,6 @@ public class GameManager : MonoBehaviour {
             } else if(currEvent == 9)
             {
                 //make phone call
-                print("end of day 5 call");
                 phoneOn = true;
                 desktopPhone.Play();
                 currEvent++;
@@ -1137,17 +1101,14 @@ public class GameManager : MonoBehaviour {
                 //set music to be correct
                 if (sitVal <= 1)
                 {
-                    print("audio 01");
                     bgmAudioSource.clip = bgm01;
                 }
                 else if (sitVal <= 3)
                 {
-                    print("audio 23");
                     bgmAudioSource.clip = bgm23;
                 }
                 else
                 {
-                    print("audio 45");
                     bgmAudioSource.clip = bgm45;
                 }
                 bgmAudioSource.Play();
@@ -1186,7 +1147,6 @@ public class GameManager : MonoBehaviour {
             } else if(currEvent == 1)
             {
                 //cell phone call
-                print("wife cell call start 6");
                 cellOn = true;
                 cellRing.Play();
                 currEvent++;
@@ -1250,7 +1210,6 @@ public class GameManager : MonoBehaviour {
                 if(situationValue < 4)
                 {
                     //cell phone call from wife
-                    print("end of game wife call");
                     cellOn = true;
                     cellRing.Play();
                     currEvent++;
@@ -1328,10 +1287,8 @@ public class GameManager : MonoBehaviour {
     public void setCellInactive()
     {
         uiManager.setCellphoneActive(false);
-        print("setting cell inactive");
         if (textOn)
         {
-            print("going to next event");
             textOn = false;
             nextEvent();
         }
@@ -1339,7 +1296,6 @@ public class GameManager : MonoBehaviour {
     
     public void setNewspaperInactive()
     {
-        print("newspaper inactive");
         uiManager.setNewspaperActive(false);
         if (newsOn)
         {
