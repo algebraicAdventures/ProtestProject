@@ -1,0 +1,7 @@
+Dialogue Box:
+	Name:
+		Paralucent Medium, 16pt
+		RGB: 73, 103, 115
+	Dialogue:
+		Paralucent Medium, 12pt
+		RGB: 51, 76, 85
