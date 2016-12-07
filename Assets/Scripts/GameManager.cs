@@ -4,6 +4,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+    public float fadeTime = 0.75f;
+    public Image fadeScreen;
+    public Canvas fadingCanvas;
+
     public float maxFieldValue = 5.0f;
     public int twitterReadWaitTime = 3;
     public AudioSource desktopPhone;
@@ -36,7 +40,26 @@ public class GameManager : MonoBehaviour {
     bool haveUsedPunchWoman = false;
     bool haveUsedTeenRaiseGun = false;
 
+    bool isFadingOut = false;
+
     
+    
+    public void Update()
+    {
+        if (isFadingOut)
+        {
+            //fade color
+            fadeScreen.color = Color.Lerp(fadeScreen.color, Color.black, 1.0f / fadeTime * Time.deltaTime);
+            //print("a = " + fadeScreen.color.a);
+            if(fadeScreen.color.a >= 0.965f)
+            {
+                fadeScreen.color = Color.black;
+                print("fading done");
+                isFadingOut = false;
+                nextEvent();
+            }
+        }
+    }
 
     string PlayerName = "Player";
 
@@ -48,10 +71,11 @@ public class GameManager : MonoBehaviour {
 
         uiManager = this.GetComponent<UIManager>();
 
-        //open up initial newspaper with officer assign screen behind
+        //disable the fading canvas
+        //fadingCanvas.gameObject.SetActive(false);
+
+        //open up initial newspaper
         
-       // uiManager.setOfficerAssignActive(true);
-        //uiManager.setNewspaperActive(true);
         uiManager.setNewspaperActive(true);
     }
 	
@@ -97,6 +121,7 @@ public class GameManager : MonoBehaviour {
             }
             else if (currEvent == 2)
             {
+                //isFadingOut = true;
                 //wait for the player to have time to read twitter and stuff
                 Invoke("nextEvent", twitterReadWaitTime);
                 currEvent++;
@@ -161,6 +186,12 @@ public class GameManager : MonoBehaviour {
                     changeSituationValue(0.3f);
                 }
 
+                desktopPhone.Play();
+                phoneOn = true;
+                currEvent++;
+            } else if(currEvent == 7)
+            {
+
                 uiManager.addDialogue("Officer", "Mission report, Chief.");
 
                 if (numOffInSection1 > numOffInSection2)
@@ -170,7 +201,7 @@ public class GameManager : MonoBehaviour {
                     uiManager.addDialogue("Officer", "The protest shows no signs of aggression after the shooting. The two matters seem unrelated but further investigations are on their way. ");
                     //uiManager.addDialogue("Officer", "With your permission, I will write off the protest as peaceful.");
                     uiManager.addDecision("Officer", "With  your permission, I will write off the protest as peaceful.", "Proceed.", "Let's hold off", 0.05f, 0.15f);
-                    
+
 
                 }
                 else
@@ -190,17 +221,27 @@ public class GameManager : MonoBehaviour {
 
                 currEvent++;
             }
+            else if (currEvent == 8)
+            {
+                //fade screen to black
+                print("attempt to fade to black");
+                //fadeScreen.CrossFadeAlpha(1.0f, fadeTime, false);
+                //fadeScreen.CrossFadeColor(Color.black, 2.0f, false);
+                //fadeScreen.Cross
+
+
+                isFadingOut = true;
+                currEvent++;
+                //after fade, call the next event
+                //nextEvent();
+            }
             else
             {
+                //end the day for real
                 print("end day 1");
                 currDay++;
                 currEvent = 0;
-
-                //fade out then in then call nextEvent
-
-                //fade screen to black
-                print("pretend that I faded to black");
-                //after fade, call the next event
+                fadeScreen.color = Color.clear;
                 nextEvent();
             }
         }
