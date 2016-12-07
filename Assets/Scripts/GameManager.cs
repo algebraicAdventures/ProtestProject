@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour {
             }
             else if (currEvent == 1)
             {
+                //testing, please remove
+                //uiManager.addDecision("me", "hello decision", "yes", "no");
                 //send the initial politican phone call
                 uiManager.addDialogue("Politician", "Good morning Chief, a small group of young adults gathered this morning at Berkeley City Hall. They were holding up posters with 'Am I next?', 'Will You Shoot Me?' and others. They continuously chanted 'Hands up, don't shoot' which garnered attention and attracted crowds of people.");
                 uiManager.addDialogue("Politician", "Currently, the protest appears peaceful but I can never predict these situations. ");

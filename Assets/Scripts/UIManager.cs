@@ -67,6 +67,12 @@ public class UIManager : MonoBehaviour {
         dialogueCanvas.gameObject.SetActive(true);
     }
 
+    public void addDecision(string speaker, string message, string optA, string optB)
+    {
+        mDialogue.addDecision(speaker, message, optA, optB);
+        dialogueCanvas.gameObject.SetActive(true);
+    }
+
     private bool inUse()
     {
         //return newspaperCanvas.gameObject.active;

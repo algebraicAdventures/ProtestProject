@@ -1,24 +1,31 @@
+programming stuff:
 Audio for cellphone works (text notification and call)
 	want to wait to put things onto actuall cell phone object
-game is in the office we built
-	make a scene in unity with it
-update newspaper accordingly
-	need newspapers as images rather than illustrator things
 update texts accordingly
 	need cell text things
-fonts and colors for dialogue
-	what should be the colors, fonts, and sized of the text?
-Officer assignment UI stuff
-	need officer assign pushed as image
 Officer assignment has mechanical effect on game (change situation value)
 	talk to carol about what it should be
-Transitions from day to day
-	fade out or screen goes straight to black
-Names for officer, player, son, wife, mayor, politician, ??
-	
-add 7th officer, remove when fire event occurs
-	
-	
+Player Choices
+	set up dialogue UI to handle that stuff
 Add in more decisions for the player to react to
 	this will require more code to make the UI for that appear and look not terrible
+	
+**dialogue buttons do things**
+	
+general unity stuff:	
+game is in the office we built
+	make a scene in unity with it
 
+Assets needed:
+Officer assignment UI stuff
+	need officer assign pushed as image
+Buttons for dialogue stuff
+	Next message button, buttons for choice A or B
+		A or B buttons should have no text on them but will have text in the game depending on situation
+
+Transitions from day to day
+	fade out or screen goes straight to black
+
+Names for officer, player, son, wife, mayor, politician, ??
+	
+add 7th officer, remove when fire event occurs????

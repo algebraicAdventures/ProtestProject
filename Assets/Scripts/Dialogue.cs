@@ -5,46 +5,120 @@ using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour {
 
-    public List<string> messages = new List<string>();
-    public List<string> names = new List<string>();
+    private class DialogueMessage
+    {
+        public string message;
+        public string name;
+        public bool isDecision;
+        public string optionA;
+        public string optionB;
+
+        public DialogueMessage(string msg, string name_)
+        {
+            this.message = msg;
+            this.name = name_;
+            this.isDecision = false;
+            optionA = "";
+            optionB = "";
+        }
+        public DialogueMessage(string msg, string name_, string optionA_, string optionB_)
+        {
+            this.message = msg;
+            this.name = name_;
+            this.isDecision = true;
+            this.optionA = optionA_;
+            this.optionB = optionB_;
+        }
+    }
+
+    List<DialogueMessage> messages_ = new List<DialogueMessage>();
+    
 
     public Text mText;
     public Text mName;
+    public Text buttonAText;
+    public Text buttonBText;
     public GameManager gameManager;
+
+    public Button buttonA, buttonB;
+
+    public void addDecision(string speaker, string msg, string OptA, string OptB)
+    {
+        if (messages_.Count == 0)
+        {
+            mText.text = msg;
+            mName.text = speaker;
+
+            //set the buttons to be the correct things
+            //buttonA.gameObject.GetComponent<Text>().text = OptA;
+            //buttonB.gameObject.GetComponent<Text>().text = OptB;
+            buttonAText.text = OptA;
+            buttonBText.text = OptB;
+
+            //activate buttons
+            buttonA.gameObject.SetActive(true);
+            buttonB.gameObject.SetActive(true);
+        }
+
+        messages_.Add(new DialogueMessage(msg, speaker, OptA, OptB));
+        
+    }
 
     public void addMessage(string speaker, string msg)
     {
         
-        if (messages.Count == 0)
+        if(messages_.Count == 0)
         {
             mText.text = msg;
             mName.text = speaker;
+
+            //deactivate buttons
+            buttonA.gameObject.SetActive(false);
+            buttonB.gameObject.SetActive(false);
         }
 
-        messages.Add(msg);
-        names.Add(speaker);
+        messages_.Add(new DialogueMessage(msg, speaker));
+        
     } 
 
     public void nextMessage()
     {
-        //print("messages count: " + messages.Count);
-        if (messages.Count > 1)
+        if (messages_.Count > 1)
         {
-            string next = messages[1];
-            //print("swapping to " + next);
-            mText.text = next;
-            mName.text = names[1];
+            mText.text = messages_[1].message;
+            mName.text = messages_[1].name;
 
-            messages.RemoveAt(0);
-            names.RemoveAt(0);
+            //see if it is a decision
+            if (messages_[0].isDecision)
+            {
+                //is decision, activate and set up buttons
+                buttonAText.text = messages_[1].optionA;
+                buttonBText.text = messages_[1].optionB;
+
+                //activate buttons
+                buttonA.gameObject.SetActive(true);
+                buttonB.gameObject.SetActive(true);
+
+                //deactivate next button
+            }
+            else
+            {
+                //deactivate buttons
+                buttonA.gameObject.SetActive(false);
+                buttonB.gameObject.SetActive(false);
+
+                //reactivate next button
+            }
+
+            messages_.RemoveAt(0);
         }
 
         else
         {
-            //print("close dialogue");
+            //close dialogue
             gameObject.SetActive(false);
-            messages.RemoveAt(0);
-            names.RemoveAt(0);
+            messages_.RemoveAt(0);
+            
             //make the next event occur
             gameManager.nextEvent();
             //transform.gameObject.SetActive(false);
